@@ -242,3 +242,8 @@ nextflow run hello
 nf-core list
 ```
 [link to introduction slides](Workshop_RNAseq_Intro.pdf)
+[link to introduction slides2](/Workshop_RNAseq_Intro.pdf)
+[link to introduction slides3](../Workshop_RNAseq_Intro.pdf)
+[link to introduction slides4](homepage/../Workshop_RNAseq_Intro.pdf)
+[link to introduction slides5](/homepage/Workshop_RNAseq_Intro.pdf)
+[link to introduction slides6](homepage/Workshop_RNAseq_Intro.pdf)
