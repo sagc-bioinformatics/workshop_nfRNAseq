@@ -1,6 +1,5 @@
 +++
 title = 'nf-core/smRNAseq'
-draft = true
 +++
 https://nf-co.re/smrnaseq/2.2.1/
 

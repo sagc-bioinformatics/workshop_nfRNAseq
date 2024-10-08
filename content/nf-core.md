@@ -1,6 +1,5 @@
 +++
 title = 'nf-core'
-draft = true
 +++
 
 ![](/nf-core/nfcore_intro.png)

@@ -1,6 +1,5 @@
 +++
 title = 'nfRNAseq'
-draft = true
 +++
 ![nf-core/RNAseq](/nfRNAseq/nfRNAseq_pipeline.png)
 

@@ -1,6 +1,5 @@
 +++
 title = 'Agenda'
-draft = true
 +++
 
 #### Time and Date

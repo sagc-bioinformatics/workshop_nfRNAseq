@@ -1,6 +1,5 @@
 +++
 title = 'nextflow introduction'
-draft = true
 +++
 Nextflow is a workflow manager, enabling multiple processes from different software to be run coherently \
 essentially creating a **pipeline**, where the output of one process is the input to the next 

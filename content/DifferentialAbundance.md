@@ -1,6 +1,5 @@
 +++
 title = 'nf-core/DifferentialAbundance'
-draft = true
 +++
 
 ![DifferentialAbundance_pipeline](/nfDA/DifferentialAbundance_pipeline.png)

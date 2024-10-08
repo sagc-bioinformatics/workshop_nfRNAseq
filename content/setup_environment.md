@@ -1,6 +1,5 @@
 +++
 title = 'Setup'
-draft = true
 +++
 
 ### Instructions to set up your personal computer

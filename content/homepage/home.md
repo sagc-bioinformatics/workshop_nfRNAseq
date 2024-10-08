@@ -1,4 +1,4 @@
 +++
-draft = true
+author='Daniel Thomson'
 +++
-![](/flier.png)
+![](/homepage/flyer.png)
