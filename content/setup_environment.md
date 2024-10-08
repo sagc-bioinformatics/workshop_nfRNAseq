@@ -241,4 +241,4 @@ conda install nf-core
 nextflow run hello
 nf-core list
 ```
-[link to introduction slides](../static/Workshop_RNAseq_Intro.pdf)
+[link to introduction slides](Workshop_RNAseq_Intro.pdf)

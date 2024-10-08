@@ -1,4 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://sagc-bioinformatics.github.io/workshop_nfRNAseq/
 title: "SAGG bioinformatics workshop"
 languageCode: en
 theme: hugo-flex
