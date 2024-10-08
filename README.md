@@ -65,4 +65,4 @@ password = goldjade63
 | 4:00  | wrap up                              |
 
 
-![](/SAGClogo.png)
+![](static/SAGClogo.png)
