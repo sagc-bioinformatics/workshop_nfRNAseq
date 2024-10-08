@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.org/</loc>
   </url><url>
-    <loc>http://localhost:1313/homepage/home/</loc>
+    <loc>https://example.org/homepage/home/</loc>
   </url><url>
-    <loc>http://localhost:1313/agenda/</loc>
+    <loc>https://example.org/agenda/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://example.org/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/homepage/</loc>
+    <loc>https://example.org/homepage/</loc>
   </url><url>
-    <loc>http://localhost:1313/nextflow/</loc>
+    <loc>https://example.org/nextflow/</loc>
   </url><url>
-    <loc>http://localhost:1313/nf-core/</loc>
+    <loc>https://example.org/nf-core/</loc>
   </url><url>
-    <loc>http://localhost:1313/differentialabundance/</loc>
+    <loc>https://example.org/differentialabundance/</loc>
   </url><url>
-    <loc>http://localhost:1313/srna/</loc>
+    <loc>https://example.org/srna/</loc>
   </url><url>
-    <loc>http://localhost:1313/nfrnaseq/</loc>
+    <loc>https://example.org/nfrnaseq/</loc>
   </url><url>
-    <loc>http://localhost:1313/setup_environment/</loc>
+    <loc>https://example.org/setup_environment/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://example.org/tags/</loc>
   </url>
 </urlset>
