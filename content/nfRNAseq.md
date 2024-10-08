@@ -1,11 +1,15 @@
 +++
 title = 'nfRNAseq'
 +++
-![nf-core/RNAseq](/nfRNAseq/nfRNAseq_pipeline.png)
+![nf-core/RNAseq](..//nfRNAseq/nfRNAseq_pipeline.png)
 
 https://nf-co.re/rnaseq/3.14.0
 
-nf-core/RNA the most popular nf-core pipeline. 
+nf-core/RNAseq the most popular nf-core pipeline. 
+
+```bash
+nf-core list -s stars
+```
 
 
 	1. Merge re-sequenced FastQ files (cat)
@@ -48,29 +52,36 @@ The dataset used throughout this workshop is as follow:
 ```
 ***NOTE*** some concessions had to be made to work with this for workshop. Taking into account the large file sizes, the long run times and need for high compute resources.
 
-let's start by having
+#### what are the inputs to an RNAseq pipeline
+
+# .fastq /.fastq.gz
+```
+
+```
+![](../fastqfile.png)
+
+# .fasta
+
+# .gtf
+
+# .bed
+![](../bedfile.png)
+
 #### Genomic file formats
 - now that we have gone through how to run the nf-core/RNAseq pipeline. Let's look at the inputs and outputs in detail.
 - using this chance to describe what are the key genomic file formats used in RNAseq and beyond
-- Knowing what these files are isn't only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformatics.
-- being able to use and manipulate each file open's up many opportunities, and is often required for troubleshooting wehn something has gone wrong
+- Knowing what these files are isn't only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformati$
+- being able to use and manipulate each file open's up many opportunities, and is often required for troubleshooting wehn something has gone w$
 - many files are plain text files, this means they can be manipluated with basic text editing. I'll be going through some examples.
-- For a more visual perspective, we'll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information each of these files contain.
+- For a more visual perspective, we'll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information eac$
 
-# fastq
-```
-
-```
-
-
-# fasta
-
-# gtf
 
 # bam
+![](../bamfile.png)
 
 # bigwig
 
 
 
-
+[link to multiqc report](../multiqc_report.html)
+[link to RNAseq Background slides](../Workshop_RNAseq_Intro.pdf)

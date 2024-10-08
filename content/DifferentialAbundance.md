@@ -2,7 +2,7 @@
 title = 'nf-core/DifferentialAbundance'
 +++
 
-![DifferentialAbundance_pipeline](/nfDA/DifferentialAbundance_pipeline.png)
+![DifferentialAbundance_pipeline](DifferentialAbundance_pipeline.png)
 
 #### nf-core/DifferentialAbundance
 
@@ -16,5 +16,7 @@ If you don't see the pipeline, you can pull it from the nf-core website.
 ```bash
 nextflow pull nf-core/differentialabundance
 ```
+but this happeds automatically when running the nextflow run nf-core/differentialabundance
 
+![nfpull](nextflowpull.png)
 

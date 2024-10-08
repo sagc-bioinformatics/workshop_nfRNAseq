@@ -1,7 +1,6 @@
 +++
+title = 'nextflow introduction'
 +++
-[``RNAseq background slides`](../Workshop_RNAseq_Intro.pdf)
-# nextflow introduction
 Nextflow is a workflow manager, enabling multiple processes from different software to be run coherently \
 essentially creating a **pipeline**, where the output of one process is the input to the next 
 - *this phrase will be used alot in the workshop it's worth defining it early.* 
@@ -130,6 +129,8 @@ An important point to make about the *work* directory. This is where outputs fro
 ```bash
 ls work/*/*
 ```
+
+
 ***try running the same process again with the -resume flag to see how quickly it runs in comparison***
 
 - notice the *cached* processes

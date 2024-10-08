@@ -1,4 +1,8 @@
 # workshop_nfRNAseq
+
+#### access tutorial here
+https://sagc-bioinformatics.github.io/workshop_nfRNAseq/
+
 #### Time and Date
 Thursday 10 October 2024
 10:00am - 4:00pm

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/workshop_nfRNAseq/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop_nfRNAseq/livereload" data-no-instant defer></script>
   
   <meta charset="utf-8">
 
@@ -13,7 +13,11 @@
   
     <meta name="description" content="
 https://nf-co.re/rnaseq/3.14.0
-nf-core/RNA the most popular nf-core pipeline.
+nf-core/RNAseq the most popular nf-core pipeline.
+
+  
+
+nf-core list -s stars
 1. Merge re-sequenced FastQ files (cat)
 2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
 3. Read QC (FastQC)
@@ -53,7 +57,7 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
 
 <meta name="generator" content="Hugo 0.135.0">
   <title>nfRNAseq | SAGG bioinformatics workshop</title>
-  <link rel="canonical" href="https://sagc-bioinformatics.github.io/workshop_nfRNAseq/nfrnaseq/">
+  <link rel="canonical" href="http://localhost:1313/workshop_nfRNAseq/nfrnaseq/">
 
 
 
@@ -71,9 +75,9 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
     
   
   
-      <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.min.ca70ae019821d0d70b4488a7cda84c279a6ed672a4fe790a33e5b11ea4fe2e5b.css" integrity="sha256-ynCuAZgh0NcLRIinzahMJ5pu1nKk/nkKM&#43;WxHqT&#43;Lls=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.css">
 
-      <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.min.065df42d2be658bb8e0720297aadf469355a5ffaf863b00e3cce0627dd106ca0.css" integrity="sha256-Bl30LSvmWLuOByApeq30aTVaX/r4Y7AOPM4GJ90QbKA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.css">
 
 
 
@@ -144,9 +148,13 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
   </h1>
   
 </header>
-  <p><img src="/nfRNAseq/nfRNAseq_pipeline.png" alt="nf-core/RNAseq"></p>
+  <p><img src="..//nfRNAseq/nfRNAseq_pipeline.png" alt="nf-core/RNAseq"></p>
 <p><a href="https://nf-co.re/rnaseq/3.14.0">https://nf-co.re/rnaseq/3.14.0</a></p>
-<p>nf-core/RNA the most popular nf-core pipeline.</p>
+<p>nf-core/RNAseq the most popular nf-core pipeline.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core list -s stars</span></span></code></pre></div>
 <pre><code>1. Merge re-sequenced FastQ files (cat)
 2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
 3. Read QC (FastQC)
@@ -194,7 +202,42 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
 - treatment vs control
 - 4 replicates for each</code></pre>
 <p><em><strong>NOTE</strong></em> some concessions had to be made to work with this for workshop. Taking into account the large file sizes, the long run times and need for high compute resources.</p>
-<p>let&rsquo;s start by having</p>
+
+
+
+<h4 id="what-are-the-inputs-to-an-rnaseq-pipeline">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#what-are-the-inputs-to-an-rnaseq-pipeline">what are the inputs to an RNAseq pipeline</a>
+</h4>
+
+
+
+<h1 id="fastq-fastqgz">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fastq-fastqgz">.fastq /.fastq.gz</a>
+</h1>
+
+  
+
+<pre tabindex="0"><code></code></pre>
+<p><img src="../fastqfile.png" alt=""></p>
+
+
+
+<h1 id="fasta">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fasta">.fasta</a>
+</h1>
+
+
+
+<h1 id="gtf">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#gtf">.gtf</a>
+</h1>
+
+
+
+<h1 id="bed">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bed">.bed</a>
+</h1>
+<p><img src="../bedfile.png" alt=""></p>
 
 
 
@@ -204,45 +247,26 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
 <ul>
 <li>now that we have gone through how to run the nf-core/RNAseq pipeline. Let&rsquo;s look at the inputs and outputs in detail.</li>
 <li>using this chance to describe what are the key genomic file formats used in RNAseq and beyond</li>
-<li>Knowing what these files are isn&rsquo;t only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformatics.</li>
-<li>being able to use and manipulate each file open&rsquo;s up many opportunities, and is often required for troubleshooting wehn something has gone wrong</li>
+<li>Knowing what these files are isn&rsquo;t only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformati$</li>
+<li>being able to use and manipulate each file open&rsquo;s up many opportunities, and is often required for troubleshooting wehn something has gone w$</li>
 <li>many files are plain text files, this means they can be manipluated with basic text editing. I&rsquo;ll be going through some examples.</li>
-<li>For a more visual perspective, we&rsquo;ll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information each of these files contain.</li>
+<li>For a more visual perspective, we&rsquo;ll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information eac$</li>
 </ul>
-
-
-
-<h1 id="fastq">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fastq">fastq</a>
-</h1>
-
-  
-
-<pre tabindex="0"><code></code></pre>
-
-
-
-<h1 id="fasta">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fasta">fasta</a>
-</h1>
-
-
-
-<h1 id="gtf">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#gtf">gtf</a>
-</h1>
 
 
 
 <h1 id="bam">
   <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bam">bam</a>
 </h1>
+<p><img src="../bamfile.png" alt=""></p>
 
 
 
 <h1 id="bigwig">
   <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bigwig">bigwig</a>
 </h1>
+<p><a href="../multiqc_report.html">link to multiqc report</a>
+<a href="../Workshop_RNAseq_Intro.pdf">link to RNAseq Background slides</a></p>
 
   
 

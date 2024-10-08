@@ -2,7 +2,7 @@
 title = 'nf-core'
 +++
 
-![](/nf-core/nfcore_intro.png)
+![](nfcore_intro.png)
 - https://nf-co.re/
 
 

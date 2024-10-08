@@ -1,26 +1,58 @@
 +++
 title = 'Setup'
 +++
-
 ### Instructions to set up your personal computer
-For this workshop, we will be using the [ARDC Nectar Research Cloud](https://ardc.edu.au/services/ardc-nectar-research-cloud/) to perform RNAseq analyses
+- *You will need to bring your own PC*
 
-Instuctions on how to access the nectar instance will be given on the day
-- an ssh command
-- a username
-- a password 
-```
-# your ssh command should look like this
-ssh username@172.243.264.45
-```
+We will be using the [ARDC Nectar Research Cloud](https://ardc.edu.au/services/ardc-nectar-research-cloud/) to perform RNAseq analyses
+
+![](nectar_logo.png)
 
 ### Requirements
-- a pc with the terminal applciation installed
-- or alternativelly Visual Studio Code installed
+- terminal applciation installed
+- or alternativelly Visual Studio Code installed\
+*please see instructions below if don't have either of these*
+
+### Accessing nectar using a ssh (Secure Shell) command
+To access `Nectar` you will need the following 
+
+|   |            |                    |
+|---|------------|--------------------|
+| 1 | username   | **workshop**         |
+| 2 | password   | **Sagc_2024**       |
+| 3 | IP address | ***given on the day*** |
+
+Your individual IP address will be given on the day. Each participant will have their own VM (virtual machine). 
+**Do not log in with the same IP address as someone else!***
 
 
-## Install and set up a terminal application
+your ssh command should look like this, but with a different IP address
+```bash
+ssh workshop@172.243.264.45
+```
+press enter, and you should see be prompted with some text
+```
+The authenticity of host '118.138.235.141 (118.138.235.141)' can't be established.
+ECDSA key fingerprint is SHA256:dgHPXk3BkFPTErqpjAYkB5qAnHLYeUZE7qg3YKcWVQw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+- type in 'yes'
+- enter your password if prompted
 
+you should see your username in green text, e.g.
+```
+workshop@workshop
+```
+This means you have logged into the virtual machine.
+
+you can now navigate to the workshop materials, which have been loaded to your instance.
+
+```bash
+cd ~/workshop/
+ls -l
+```
+
+## Install and set up a terminal application (if needed)
 #### Linux terminals
 If you use Linux, then likely no explanation is needed. Open your preferred terminal program
 
@@ -32,9 +64,6 @@ Use `ssh` in the *Terminal* app. For example, if your IP is `172.243.264.45` and
 ```
 ssh user@172.243.264.45
 ```
-
-When prompted, type your password and then press `return`.
-
 ### Windows
 
 The latest builds of Windows 10 and 11 come with SSH server and client. To see if your windows installation has SSH:
@@ -59,56 +88,6 @@ Open PuTTY and connect using the IP address of your VM as the host name, and set
 
 When prompted, type in your username and password.
 
-# Login via Terminal
-To log in to Nectar, you need to use a Secure Shell (SSH) connection. To connect, you need 3 things
-
-- The assigned IP address of your instance (i.e. 172.243.264.45). These will be circulated at the beginning of the workshop
-- Your login name. This will be 'SAGC' for all participants.
-- Your password. All participants will be provided with a password at the beginning of the workshop.
-To log in: type the following into your terminal, using your allocated instance’s IP address:
-
-```bash
-ssh username@172.243.264.45
-```
-You will receive a message saying:
-
-```
-The authenticity of host '172.243.264.45 (172.243.264.45)' can't be established.
-
-Remember your host address will be different than the one above. There will then be a message saying:
-
-Are you sure you want to continue connecting (yes/no)?
-```
-If you would like to skip this message next time you log in, answer ‘yes’. It will then give a warning:
-
-```
-Warning: Permanently added '172.243.264.45' (ECDSA) to the list of known hosts.
-
-```
-Enter the password provided at the beginning of the workshop.
-
-
-# log into nectar instance
-using the username and IP address provided
-- example
-```
-IP='172.243.264.45'
-user='workshop'
-sshkey='/Users/danielthomson/.ssh/dan_nectar'
-```
-using your information run the following command in your terminal
-```bash
-ssh -i $sshkey $user@$IP
-#ssh -i /Users/danielthomson/.ssh/dan_nectar ubuntu@118.138.235.112
-# or using other ssh command
-```
-navigate to worshop materials
-```bash
-cd ~/workshop/
-ls -l
-```
-
-
 
 
 # Environment Setup
@@ -123,32 +102,32 @@ however if you wish to use your own computing environment or from scratch you wi
 - install singularity
 - install GO
 
+you can fistly check whether these have been installed with the following commands
+```bash 
+nextflow -version
+conda -version
+nf-core -version
+singularity -version
+```
 
 #### install nextflow
 ```bash
-mkdir ~/bin
-cd ~/bin
+mkdir ~/bin && cd ~/bin
 curl -s https://get.nextflow.io | bash
 chmod +x nextflow
 ```
 
-#### adding ~/bin to PATH # in ~/.bashrc
+adding ~/bin to PATH # in ~/.bashrc
 ```bash
 echo 'export PATH=~/bin:${PATH}' >> ~/.bashrc && \
     source ~/.bashrc
 ```
-#### Nexctflow options and commands
 
+test installation
 ```bash
-# test installation
-nextflow -h
-# run help menu
-nextflow run -help
-# check version
 nextflow -version
 ```
-#### Managing environment
-- setting the nextflow singularity cachedir
+#### Setting the nextflow singularity cachedir
 
 ```bash
 mkdir -p ~/SingularityCacheDir
@@ -160,11 +139,10 @@ echo 'export NXF_SINGULARITY_CACHEDIR=~/SingularityCacheDir' >> ~/.bashrc && \
 # check cache dir
 echo $NXF_SINGULARITY_CACHEDIR
 ```
-- can add this line to ~/.bashrc
 
 #### install Singularity
 
--On Ubuntu or Debian install the following dependencies: 
+- install the following dependencies: (Ubuntu)
 ```bash
 sudo apt-get update && sudo apt-get install -y \
     build-essential \
@@ -210,13 +188,12 @@ export VERSION=3.9.6 && # adjust this as necessary \
     sudo make -C ./builddir install
 
 # test installation
-singularity -h
+singularity  --version
 ```
 
-#### install Conda
+install Conda
 ```bash
-cd ~/bin
-mkdir -p miniconda3
+cd ~/bin && mkdir -p miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
 bash miniconda3/miniconda.sh -b -u -p miniconda3
 rm miniconda3/miniconda.sh
@@ -235,10 +212,35 @@ conda config --add channels bioconda
 #### install nf-core tools
 
 ```bash
-conda install nf-core
+# chosing to install nf-core to a new conda environment called 'nf-core', with nexflow as well
+conda create --name nf-core python=3.12 nf-core
+
+# initiate conda 
+conda init
+
+# if prompted close terminal and reopen
+exit
+# reopen with ssh command
+
+# see whether the environment is there
+conda env list
+
+#activate this environment
+conda activate nf-core
 
 # test installation
-nextflow run hello
-nf-core list
+nextflow -v
+nf-core -v
 ```
-[link to introduction slides](../Workshop_RNAseq_Intro.pdf)
+# Samtools
+```bash
+cd ~/bin
+wget https://github.com/samtools/samtools/releases/download/1.21/samtools-1.21.tar.bz2
+tar -xvjf samtools-1.21.tar.bz2
+rm samtools-1.21.tar.bz2
+cd samtools-1.21/
+make
+make install
+```
+
+[link to RNAseq Background slides](../Workshop_RNAseq_Intro.pdf)
