@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+  <meta charset="utf-8">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="Nextflow is a workflow manager, enabling multiple processes from different software to be run coherently 
+essentially creating a pipeline, where the output of one process is the input to the next
+
+this phrase will be used alot in the workshop it&rsquo;s worth defining it early.
+
+Nextflow is very a powerful tool for software development
+
+for a deeper dive into nextflow, particularly how to write nextflow pipelines, feel free to refer to SAGC&rsquo;s previous workshop notes 
+SAGC nextflow vs snakemake workshop
+
+In this workshop we will using nf-core pipelines, which have been built with nextflow, to analyse RNAseq data.">
+  
+
+
+<meta name="color-scheme" content="light dark">
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.135.0">
+  <title>nextflow introduction | SAGG bioinformatics workshop</title>
+  <link rel="canonical" href="http://localhost:1313/nextflow/">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    <link rel="stylesheet" href="/css/base.css">
+
+    <link rel="stylesheet" href="/css/syntax.css">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">SAGG bioinformatics workshop</a>
+      </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/agenda/">agenda</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/setup_environment/">setup</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nextflow/">nextflow</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nf-core/">nf-core</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nfrnaseq/">nfRNAseq</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/differentialabundance/">DifferentialAbundance</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/srna/">sRNA</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <header class="Heading">
+  <h1 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/nextflow/" rel="bookmark">nextflow introduction</a>
+  </h1>
+  
+</header>
+  <p>Nextflow is a workflow manager, enabling multiple processes from different software to be run coherently <br>
+essentially creating a <strong>pipeline</strong>, where the output of one process is the input to the next</p>
+<ul>
+<li><em>this phrase will be used alot in the workshop it&rsquo;s worth defining it early.</em></li>
+</ul>
+<p>Nextflow is very a powerful tool for software development</p>
+<ul>
+<li>for a deeper dive into nextflow, particularly how to write nextflow pipelines, feel free to refer to SAGC&rsquo;s previous workshop notes <br>
+<a href="https://sagc-bioinformatics.github.io/nextflow-vs-snakemake-2024/">SAGC nextflow vs snakemake workshop</a></li>
+</ul>
+<p>In this workshop we will using nf-core pipelines, which have been built with nextflow, to analyse RNAseq data.</p>
+<p>But that all starts with getting nextflow running, so this section is designed to give you a quick view of what&rsquo;s required to run nextflow.</p>
+
+
+
+<h4 id="log-into-nectar-instance-with-provided-username-and-ip-address">
+  <a class="Heading-link u-clickable" href="/nextflow/#log-into-nectar-instance-with-provided-username-and-ip-address">log into nectar instance with provided username and IP address</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># example only</span>
+</span></span><span class="line"><span class="cl">ssh username@172.243.264.45</span></span></code></pre></div>
+<p>navigate to worshop materials</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/
+</span></span><span class="line"><span class="cl">ls -l</span></span></code></pre></div>
+
+
+
+<h4 id="nextflow-commands">
+  <a class="Heading-link u-clickable" href="/nextflow/#nextflow-commands">nextflow commands</a>
+</h4>
+<p>which version of nextflow are we using?</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nextflow -version</span></span></code></pre></div>
+<p>this command will also test wether nextflow is installed, if it isn&rsquo;t see installation instructions</p>
+<pre><code>  N E X T F L O W
+  version 24.04.4 build 5917
+  created 01-08-2024 07:05 UTC 
+  cite doi:10.1038/nbt.3820
+  http://nextflow.io
+</code></pre>
+<p>Other Dependencies for running nextflow include singularity, which also uses GO</p>
+<ul>
+<li>
+<p>let&rsquo;s make sure they are installed as well, to help demonstrate what is required to get nextflow running</p>
+</li>
+<li>
+<p>in general, nf-core pipelines have very few dependencies, with most software packaged in containers such as singularity, this makes them very <em>portable</em> , meaning they can be run on different compute environments</p>
+</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">singularity --version</span></span></code></pre></div>
+<p>The workshop is running on a Nectar Research cloud instance, where these already should be installed. If not, or if you are working from a different environment, please refer to the second half of the &lsquo;Setup&rsquo; instructions, giving instructions of how to install these software.</p>
+<p>if you wake a look in your ~/.bashrc file you should see the following lines. The <em>PATH</em> to these tools will be set when starting up the <em>bash</em> instance</p>
+<p>Have a look at your .bashrc, by opening in a text editor such an &amp;nano*, or using <em>tail</em></p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tail  ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="c1"># nano ~/bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># to quit this screen, press the &#39;control&#39; and &#39;x&#39; </span></span></span></code></pre></div>
+<p>you should see these lines at the bottom, or similar</p>
+<pre><code>export PATH=~/bin:${PATH}
+export NXF_SINGULARITY_CACHEDIR=~/SingularityCacheDir
+export GOPATH=${HOME}/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+export PATH=${PATH}:~/bin/miniconda3/bin
+</code></pre>
+
+
+
+<h4 id="now-lets-take-a-moment-to-get-familiar-with-the-nextflow-commands">
+  <a class="Heading-link u-clickable" href="/nextflow/#now-lets-take-a-moment-to-get-familiar-with-the-nextflow-commands">Now let&rsquo;s take a moment to get familiar with the nextflow commands</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nextflow -h</span></span></code></pre></div>
+<p>particularly the &rsquo;nextflow run&rsquo; command</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nextflow run -help</span></span></code></pre></div>
+
+
+
+<h4 id="singularity-cachedir">
+  <a class="Heading-link u-clickable" href="/nextflow/#singularity-cachedir">Singularity cachedir</a>
+</h4>
+<p>This is where downloaded singularity images are stored, so that an unchanged imaged doesn&rsquo;t have to be downloaded again when the same pipeline is run</p>
+<ul>
+<li>setting the nextflow singularity cachedir</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p SingularityCacheDir
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export NXF_SINGULARITY_CACHEDIR=~/SingularityCacheDir&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">source</span> ~/.bashrc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$NXF_SINGULARITY_CACHEDIR</span></span></span></code></pre></div>
+
+
+
+<h4 id="running-nextflow">
+  <a class="Heading-link u-clickable" href="/nextflow/#running-nextflow">running nextflow</a>
+</h4>
+<p>-lets run a small nextflow pipeline</p>
+<p>this is the one from the previous workshop</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#firstly clone the example workflow developed in the previous workshop from github</span>
+</span></span><span class="line"><span class="cl">mkdir -p ~/workshop/nextflow_example
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/nextflow_example
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git clone https://github.com/sagc-bioinformatics/nextflow-example-workflow-2024.git</span></span></code></pre></div>
+<p>now use the &rsquo;nextflow run&rsquo; command</p>
+
+  
+
+<pre tabindex="0"><code>nextflow run main.nf</code></pre>
+<p>The processes should print to your screen as standard output</p>
+<p><img src="/nextflow/nextflowexampllog.png" alt="log"></p>
+<ul>
+<li>let&rsquo;s check out how the run went</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># you can use the &#39;nextflow log&#39; command</span>
+</span></span><span class="line"><span class="cl">nextflow log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the .nextflow.log is output in the run directory, it&#39;s a hidden file so you will have to use ls -a to see it</span>
+</span></span><span class="line"><span class="cl">ls -lat</span></span></code></pre></div>
+<p>you should see a few new files/directories output from that nextflow process</p>
+<ol>
+<li>.nextflow.log</li>
+<li>/output</li>
+<li>/work</li>
+</ol>
+<ul>
+<li>take a moment to navigate through those outputs</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tail .nextflow.log
+</span></span><span class="line"><span class="cl">ls output/*</span></span></code></pre></div>
+
+
+
+<h4 id="work-directory">
+  <a class="Heading-link u-clickable" href="/nextflow/#work-directory">work directory</a>
+</h4>
+<p>An important point to make about the <em>work</em> directory. This is where outputs from finished processes are cached. This is a very important feature of workflow managers than incomplete runs can be resumed.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls work/*/*</span></span></code></pre></div>
+<p><em><strong>try running the same process again with the -resume flag to see how quickly it runs in comparison</strong></em></p>
+<ul>
+<li>notice the <em>cached</em> processes</li>
+</ul>
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding u-noboosting">
+        2024 Daniel Thomson &#32; <a href="https://sa-genomics.com.au/our-team" rel="license">SA Genomics Centre</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

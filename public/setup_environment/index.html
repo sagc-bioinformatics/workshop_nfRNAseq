@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+  <meta charset="utf-8">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+    <meta name="description" content="
+  Instructions to set up your personal computer
+
+For this workshop, we will be using the ARDC Nectar Research Cloud to perform RNAseq analyses
+Instuctions on how to access the nectar instance will be given on the day
+
+an ssh command
+a username
+a password
+
+
+  
+
+# your ssh command should look like this
+ssh username@172.243.264.45
+
+
+
+
+  Requirements
+
+
+a pc with the terminal applciation installed
+or alternativelly Visual Studio Code installed
+
+
+
+
+
+  Install and set up a terminal application
+
+
+
+
+
+  Linux terminals
+
+If you use Linux, then likely no explanation is needed. Open your preferred terminal program">
+  
+
+
+<meta name="color-scheme" content="light dark">
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.135.0">
+  <title>Setup | SAGG bioinformatics workshop</title>
+  <link rel="canonical" href="http://localhost:1313/setup_environment/">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    <link rel="stylesheet" href="/css/base.css">
+
+    <link rel="stylesheet" href="/css/syntax.css">
+
+
+
+</head>
+
+<body>
+  <nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="/">SAGG bioinformatics workshop</a>
+      </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/agenda/">agenda</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/setup_environment/">setup</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nextflow/">nextflow</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nf-core/">nf-core</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/nfrnaseq/">nfRNAseq</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/differentialabundance/">DifferentialAbundance</a>
+        </li>
+      
+        
+        
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="/srna/">sRNA</a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+  <main>
+    <div class="u-wrapper">
+      <div class="u-padding">
+        
+
+  <header class="Heading">
+  <h1 class="Heading-title">
+    <a class="Heading-link u-clickable" href="/setup_environment/" rel="bookmark">Setup</a>
+  </h1>
+  
+</header>
+  
+
+
+<h3 id="instructions-to-set-up-your-personal-computer">
+  <a class="Heading-link u-clickable" href="/setup_environment/#instructions-to-set-up-your-personal-computer">Instructions to set up your personal computer</a>
+</h3>
+<p>For this workshop, we will be using the <a href="https://ardc.edu.au/services/ardc-nectar-research-cloud/">ARDC Nectar Research Cloud</a> to perform RNAseq analyses</p>
+<p>Instuctions on how to access the nectar instance will be given on the day</p>
+<ul>
+<li>an ssh command</li>
+<li>a username</li>
+<li>a password</li>
+</ul>
+
+  
+
+<pre tabindex="0"><code># your ssh command should look like this
+ssh username@172.243.264.45</code></pre>
+
+
+
+<h3 id="requirements">
+  <a class="Heading-link u-clickable" href="/setup_environment/#requirements">Requirements</a>
+</h3>
+<ul>
+<li>a pc with the terminal applciation installed</li>
+<li>or alternativelly Visual Studio Code installed</li>
+</ul>
+
+
+
+<h2 id="install-and-set-up-a-terminal-application">
+  <a class="Heading-link u-clickable" href="/setup_environment/#install-and-set-up-a-terminal-application">Install and set up a terminal application</a>
+</h2>
+
+
+
+<h4 id="linux-terminals">
+  <a class="Heading-link u-clickable" href="/setup_environment/#linux-terminals">Linux terminals</a>
+</h4>
+<p>If you use Linux, then likely no explanation is needed. Open your preferred terminal program</p>
+
+
+
+<h4 id="os-x-mac">
+  <a class="Heading-link u-clickable" href="/setup_environment/#os-x-mac">OS X (Mac)</a>
+</h4>
+<p>Mac operating systems have a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command + Space and type ‘terminal’. You may find that other, 3rd party terminal programs are .</p>
+<p>Use <code>ssh</code> in the <em>Terminal</em> app. For example, if your IP is <code>172.243.264.45</code> and user name is <code>user</code>, you would enter:</p>
+
+  
+
+<pre tabindex="0"><code>ssh user@172.243.264.45</code></pre>
+<p>When prompted, type your password and then press <code>return</code>.</p>
+
+
+
+<h3 id="windows">
+  <a class="Heading-link u-clickable" href="/setup_environment/#windows">Windows</a>
+</h3>
+<p>The latest builds of Windows 10 and 11 come with SSH server and client. To see if your windows installation has SSH:</p>
+<ul>
+<li>start Command Prompt (cmd) or Powershell</li>
+<li>type in &lsquo;ssh&rsquo;</li>
+</ul>
+<p>If SSH is available, you should see something like</p>
+
+  
+
+<pre tabindex="0"><code>usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]</code></pre>
+<p>If SSH is not available, please install <a href="https://www.putty.org/">PuTTY</a>.</p>
+<p>Open PuTTY and connect using the IP address of your VM as the host name, and set port to 22.</p>
+<p>When prompted, type in your username and password.</p>
+
+
+
+<h1 id="login-via-terminal">
+  <a class="Heading-link u-clickable" href="/setup_environment/#login-via-terminal">Login via Terminal</a>
+</h1>
+<p>To log in to Nectar, you need to use a Secure Shell (SSH) connection. To connect, you need 3 things</p>
+<ul>
+<li>The assigned IP address of your instance (i.e. 172.243.264.45). These will be circulated at the beginning of the workshop</li>
+<li>Your login name. This will be &lsquo;SAGC&rsquo; for all participants.</li>
+<li>Your password. All participants will be provided with a password at the beginning of the workshop.
+To log in: type the following into your terminal, using your allocated instance’s IP address:</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh username@172.243.264.45</span></span></code></pre></div>
+<p>You will receive a message saying:</p>
+
+  
+
+<pre tabindex="0"><code>The authenticity of host &#39;172.243.264.45 (172.243.264.45)&#39; can&#39;t be established.
+
+Remember your host address will be different than the one above. There will then be a message saying:
+
+Are you sure you want to continue connecting (yes/no)?</code></pre>
+<p>If you would like to skip this message next time you log in, answer ‘yes’. It will then give a warning:</p>
+
+  
+
+<pre tabindex="0"><code>Warning: Permanently added &#39;172.243.264.45&#39; (ECDSA) to the list of known hosts.</code></pre>
+<p>Enter the password provided at the beginning of the workshop.</p>
+
+
+
+<h1 id="log-into-nectar-instance">
+  <a class="Heading-link u-clickable" href="/setup_environment/#log-into-nectar-instance">log into nectar instance</a>
+</h1>
+<p>using the username and IP address provided</p>
+<ul>
+<li>example</li>
+</ul>
+
+  
+
+<pre tabindex="0"><code>IP=&#39;172.243.264.45&#39;
+user=&#39;workshop&#39;
+sshkey=&#39;/Users/danielthomson/.ssh/dan_nectar&#39;</code></pre>
+<p>using your information run the following command in your terminal</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i <span class="nv">$sshkey</span> <span class="nv">$user</span>@<span class="nv">$IP</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#ssh -i /Users/danielthomson/.ssh/dan_nectar ubuntu@118.138.235.112</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># or using other ssh command</span></span></span></code></pre></div>
+<p>navigate to worshop materials</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/
+</span></span><span class="line"><span class="cl">ls -l</span></span></code></pre></div>
+
+
+
+<h1 id="environment-setup">
+  <a class="Heading-link u-clickable" href="/setup_environment/#environment-setup">Environment Setup</a>
+</h1>
+<pre><code>**NO NEED TO CONTINUE** if accessing this content on the nectar instance
+</code></pre>
+<p>On the day of the workshop this will have already been done, and will be available when you log into the Nectar instance using <em>ssh</em> <br>
+however if you wish to use your own computing environment or from scratch you will have to install the dependencies</p>
+<ul>
+<li>install nextflow</li>
+<li>install conda</li>
+<li>install nf-core tools</li>
+<li>install singularity</li>
+<li>install GO</li>
+</ul>
+
+
+
+<h4 id="install-nextflow">
+  <a class="Heading-link u-clickable" href="/setup_environment/#install-nextflow">install nextflow</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir ~/bin
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/bin
+</span></span><span class="line"><span class="cl">curl -s https://get.nextflow.io <span class="p">|</span> bash
+</span></span><span class="line"><span class="cl">chmod +x nextflow</span></span></code></pre></div>
+
+
+
+<h4 id="adding-bin-to-path--in-bashrc">
+  <a class="Heading-link u-clickable" href="/setup_environment/#adding-bin-to-path--in-bashrc">adding ~/bin to PATH # in ~/.bashrc</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=~/bin:${PATH}&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">source</span> ~/.bashrc</span></span></code></pre></div>
+
+
+
+<h4 id="nexctflow-options-and-commands">
+  <a class="Heading-link u-clickable" href="/setup_environment/#nexctflow-options-and-commands">Nexctflow options and commands</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># test installation</span>
+</span></span><span class="line"><span class="cl">nextflow -h
+</span></span><span class="line"><span class="cl"><span class="c1"># run help menu</span>
+</span></span><span class="line"><span class="cl">nextflow run -help
+</span></span><span class="line"><span class="cl"><span class="c1"># check version</span>
+</span></span><span class="line"><span class="cl">nextflow -version</span></span></code></pre></div>
+
+
+
+<h4 id="managing-environment">
+  <a class="Heading-link u-clickable" href="/setup_environment/#managing-environment">Managing environment</a>
+</h4>
+<ul>
+<li>setting the nextflow singularity cachedir</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p ~/SingularityCacheDir
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#export NXF_SINGULARITY_CACHEDIR=~/SingularityCacheDir</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export NXF_SINGULARITY_CACHEDIR=~/SingularityCacheDir&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">source</span> ~/.bashrc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># check cache dir</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$NXF_SINGULARITY_CACHEDIR</span></span></span></code></pre></div>
+<ul>
+<li>can add this line to ~/.bashrc</li>
+</ul>
+
+
+
+<h4 id="install-singularity">
+  <a class="Heading-link u-clickable" href="/setup_environment/#install-singularity">install Singularity</a>
+</h4>
+<p>-On Ubuntu or Debian install the following dependencies:</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    build-essential <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    uuid-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    libgpgme-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    squashfs-tools <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    libseccomp-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    pkg-config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    git <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    cryptsetup-bin</span></span></code></pre></div>
+<p>if you are using an HPC environment without superuser (su) access, then you will have to ask IT/administrator to install it
+Sahmri HPC, Nectar or Deepthought will already have it installed</p>
+<ul>
+<li>install GO</li>
+<li>GO is a dependency of Singularity</li>
+</ul>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VERSION</span><span class="o">=</span>1.23.2 <span class="nv">OS</span><span class="o">=</span>linux <span class="nv">ARCH</span><span class="o">=</span>amd64 <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget https://dl.google.com/go/go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    sudo tar -C /usr/local -xzvf go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set up your environment for Go.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export GOPATH=${HOME}/go&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">source</span> ~/.bashrc</span></span></code></pre></div>
+<p>Install Singularity</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># download singularity</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VERSION</span><span class="o">=</span>3.9.6 <span class="o">&amp;&amp;</span> <span class="c1"># adjust this as necessary \</span>
+</span></span><span class="line"><span class="cl">    wget https://github.com/sylabs/singularity/releases/download/v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/singularity-ce-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    tar -xzf singularity-ce-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">cd</span> singularity-ce-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#compile Singularity</span>
+</span></span><span class="line"><span class="cl">./mconfig <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    make -C ./builddir <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    sudo make -C ./builddir install
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># test installation</span>
+</span></span><span class="line"><span class="cl">singularity -h</span></span></code></pre></div>
+
+
+
+<h4 id="install-conda">
+  <a class="Heading-link u-clickable" href="/setup_environment/#install-conda">install Conda</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/bin
+</span></span><span class="line"><span class="cl">mkdir -p miniconda3
+</span></span><span class="line"><span class="cl">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
+</span></span><span class="line"><span class="cl">bash miniconda3/miniconda.sh -b -u -p miniconda3
+</span></span><span class="line"><span class="cl">rm miniconda3/miniconda.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#### add PATH to ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=${PATH}:~/bin/miniconda3/bin&#39;</span> &gt;&gt; ~/.bashrc <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nb">source</span> ~/.bashrc</span></span></code></pre></div>
+<p>add bioconda to conda channel</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda config --add channels bioconda</span></span></code></pre></div>
+
+
+
+<h4 id="install-nf-core-tools">
+  <a class="Heading-link u-clickable" href="/setup_environment/#install-nf-core-tools">install nf-core tools</a>
+</h4>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda install nf-core
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># test installation</span>
+</span></span><span class="line"><span class="cl">nextflow run hello
+</span></span><span class="line"><span class="cl">nf-core list</span></span></code></pre></div>
+<p><a href="../static/Workshop_RNAseq_Intro.pdf">link to introduction slides</a></p>
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+
+
+
+      </div>
+    </div>
+  </main>
+  
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding u-noboosting">
+        2024 Daniel Thomson &#32; <a href="https://sa-genomics.com.au/our-team" rel="license">SA Genomics Centre</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
