@@ -30,8 +30,40 @@ Pipeline summary
 9. miRNA quality control (mirtrace)
 10. Present QC for raw read, alignment, and expression results (MultiQC)
 
-#### running nf-core/sRNAseq
-![](/sRNA/smRNAseq_log.png)
+# running nf-core/sRNAseq
+navigate to smallRNA run directory
+```bash
+cd ~/workshop/smallRNA
+ls -ls
+tree
+```
+You can see the same directory structure for the pipeline. This was run with a 'nextflow run' kickoff shell script, and the samplesheet aas shown.
+
+ samplesheet
+```bash
+cat samplesheet.csv
+```
+
+![](samplesheet.csv)
+
+nextflow run script
+```
+cat nf-smRNAseq.sh
+```
+![](smallRNA_runscript.png)
+
+These were the same sample as run for the mRNA experiment.
+
+```
+- 16 Samples sequenced with an MGI400 sequencer at SAGC using the Tecan Universal RNA-seq library protocol.
+- 2 different cancer cell lines (human)
+- treatment vs control
+- 4 replicates for each
+```
+We will go over how this was set up.
+
+
+![](smRNAseq_log.png)
 
 small RNA multiqc
 [link to small RNA multiqc](../workshop-small-RNAseq_multiqc_report.html)
@@ -92,3 +124,12 @@ you can now uncompress the directory
 ```bash
 tar -xvf smallRNA.tar
 ```
+
+# Results
+
+We will work through the multiqc
+[link to small RNA multiqc](../workshop-small-RNAseq_multiqc_report.html)
+
+And navigate through the smRNA outputs from the downloaded local copy.
+
+
