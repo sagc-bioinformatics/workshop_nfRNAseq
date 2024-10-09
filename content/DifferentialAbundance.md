@@ -171,3 +171,14 @@ head -n 10 genome.gtf
 head -n 10 genome.gtf
 ```
 
+
+![normalisation](normalisation.png)
+
+
+![PCA](PCA.png)
+
+![cluster](heirachicalclustering.png)
+
+![foldchange](foldchange.png)
+
+![PDX1](PDX1.png)

@@ -11,34 +11,14 @@
 
 
   
-    <meta name="description" content="
+    <meta name="description" content="In this workshop we will using nf-core  https://nf-co.re/ pipelines, which have been built with nextflow, to analyse RNAseq data.
+There is a long list nf-core pipeline growing as fast as the field of genomics.
+Because the aim is to be able to use these for your own research, I&rsquo;ve had to narrow focus on three of the most usable pipelines.\
+    1. nf-core/RNAseq
+    2. nf-core/DifferentialAbundance
+    3. nf-core/smRNAseq
 
-https://nf-co.re/
-
-nf-core tools
-
-  
-
-nf-core -h
-nf-core list rna
-nf-core list rna -s stars
-Or you could just look at the website
-nf-core/pipelines
-
-
-  
-
-nf-core launch nf-core/rnaseq
-
-use the arrow keys to select version &lsquo;3.14.0&rsquo; , press enter
-use the arrow keys to select &lsquo;Web based&rsquo;
-LOTS of TEXT to FILL OUT here
-if we have time at the end can go through other pipelines in more details if anyone has specific questions
-
-
-  
-
-scp">
+nf-core pipelines are build with a strict structure and key principles.">
   
 
 
@@ -143,20 +123,73 @@ scp">
   </h1>
   
 </header>
-  <p><img src="nfcore_intro.png" alt=""></p>
-<ul>
-<li><a href="https://nf-co.re/">https://nf-co.re/</a></li>
-</ul>
-<p>nf-core tools</p>
+  <p>In this workshop we will using nf-core  <a href="https://nf-co.re/">https://nf-co.re/</a> pipelines, which have been built with nextflow, to analyse RNAseq data.
+There is a long list nf-core pipeline growing as fast as the field of genomics.
+Because the aim is to be able to use these for your own research, I&rsquo;ve had to narrow focus on three of the most usable pipelines.\</p>
+<pre><code>    1. nf-core/RNAseq
+    2. nf-core/DifferentialAbundance
+    3. nf-core/smRNAseq
+</code></pre>
+<p>nf-core pipelines are build with a strict structure and key principles.</p>
+<pre><code>- Documentation
+- Stable Releases
+- Open source
+- CI testing
+- Run anywhere
+- packaged software
+</code></pre>
+<p><img src="nfcore_intro.png" alt=""></p>
+<p>To take a closer look at what nf-core pipelines are available, let&rsquo;s make use of the <strong>nf-core tools</strong></p>
+
+
+
+<h1 id="nf-core-tools">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nf-core/#nf-core-tools">nf-core tools</a>
+</h1>
+<p>The nf-core command is it&rsquo;s own seperate toolkit. It isn&rsquo;t necessary for running nextflow pipelines, but it can aid usability and you may find it&rsquo;s syntax more approachable.
+For each nf-core pipeline there are multiple ways to run the software, with three of them presented on the homepage of each pipeline.</p>
+<pre><code>1. nexflow run
+2. nf-core launch
+3. Seqera Platform
+</code></pre>
+<p><img src="nfcoretools.png" alt=""></p>
+<p><strong>nf-core tools</strong> has been installed to your VM onto its own <strong>conda channel</strong> - see instalation instructions on the setup page.</p>
+<p>to activate this conda environment with nf-core tools available, run the following.</p>
 
   
 
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core -h
-</span></span><span class="line"><span class="cl">nf-core list rna
-</span></span><span class="line"><span class="cl">nf-core list rna -s stars</span></span></code></pre></div>
-<p>Or you could just look at the website
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate nf-core
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># you can see the change of conda environments with</span>
+</span></span><span class="line"><span class="cl">conda env list</span></span></code></pre></div>
+<p>changing from <strong>base</strong> environment to the <strong>nf-core</strong> environment</p>
+<p><img src="condaenv.png" alt=""></p>
+<p>Now you can use the nf-core command to get to know what it offers.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core -h</span></span></code></pre></div>
+<p>you should see a list, with the apple-core header image.</p>
+<p><img src="nfcoretools.pnf" alt=""></p>
+<p>you should see a list, with the apple-core header immage.</p>
+<p>You can use the &rsquo;list&rsquo; command to see the available pipelines.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core list </span></span></code></pre></div>
+<p>I count 95 different pipeline from this.</p>
+<p>Narrowing down the search to those with &lsquo;rna&rsquo; as a search term.</p>
+<p>there is also the &lsquo;star&rsquo; metric to get an idea of the popularity.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core list -s stars</span></span></code></pre></div>
+<p>&lsquo;rnaseq&rsquo;, &lsquo;differentialabundance&rsquo; and &lsquo;smRNA&rsquo; are all strong contenders in popularity.</p>
+<p>There are many other great analysis pipelines on that list, and this workshop can&rsquo;t go into detail into all of them.
+But I&rsquo;ll use this opportunity to ask what genomics applications the participants are using, and go through some I&rsquo;ve tried.</p>
+<p>The whole list of pipelines is on the website.
 <a href="https://nf-co.re/pipelines">nf-core/pipelines</a></p>
-<p><img src="/nf-core-pipelines.png" alt="nf-core/pipelines"></p>
+<p><img src="/nf-core-pipelines.png" alt="pipelines"></p>
 
   
 

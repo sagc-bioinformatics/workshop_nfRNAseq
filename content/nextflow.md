@@ -1,17 +1,34 @@
 +++
 title = 'nextflow introduction'
 +++
-Nextflow is a workflow manager, enabling multiple processes from different software to be run coherently \
-essentially creating a **pipeline**, where the output of one process is the input to the next 
-- *this phrase will be used alot in the workshop it's worth defining it early.* 
+Nextflow is a workflow manager. It strings together chunks of code from any programming language into processess, with designated inputs and outputs. 
+The chunks of code called **processes** are organised into **channels**, effectively organising the collection of codeinto an **pipeline** or workflow.
 
-Nextflow is very a powerful tool for software development
-- for a deeper dive into nextflow, particularly how to write nextflow pipelines, feel free to refer to SAGC's previous workshop notes \
+**key features of Nextflow’s features are:**
+- portability
+- reproducibility
+- Scalability
+
+Each process is a unit of execution that represents a single computational step, organised by **channels** in an intuitive language which makes it approachable for developers 
+making it a popular method for organising code in many fields, but has a real niche in genomics.
+
+Developing nextflow pipelines isn't the focus isn't the focus of this workshop - where we are mostly focused on how to run the software, and how to interpret the data.
+ 
+For a deeper dive into nextflow, particularly how to write nextflow pipelines, feel free to refer to SAGC's previous workshop notes.\
 [SAGC nextflow vs snakemake workshop](https://sagc-bioinformatics.github.io/nextflow-vs-snakemake-2024/)
 
-In this workshop we will using nf-core pipelines, which have been built with nextflow, to analyse RNAseq data.
+The popularity of nextflow in genomics is both driving and being driven by the popularity of nf-core pipelines. 
+Nf-core is a public repository of pipelines for genomics analysis, making software written with **best-practices* in mind accessible to everyone. 
 
-But that all starts with getting nextflow running, so this section is designed to give you an overview of what's required to run nextflow.
+In this workshop we will using nf-core pipelines, which have been built with nextflow, to analyse RNAseq data. 
+There is a list nf-core pipeline growing as fast as the field of genomics.
+Because the aim is to be able to use these for your own research, I've had to narrow focus on three of the most usable pipelines
+	- nf-core/RNAseq 
+	- nf-core/DifferentialAbundance
+	- nf-core/smRNAseq
+
+
+But to get started all starts with getting nextflow running, so this section is designed to give you an overview of what's required to run nextflow.
 
 #### log into nectar instance with provided username and IP address
 ```bash
