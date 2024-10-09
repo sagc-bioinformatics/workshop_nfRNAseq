@@ -245,6 +245,7 @@ rm samtools-1.21.tar.bz2
 cd samtools-1.21/
 make
 make install
+export PATH=$PATH:/home/workshop/bin/bin
 ```
 
 [link to RNAseq Background slides](../Workshop_RNAseq_Intro.pdf)
