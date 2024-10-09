@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/workshop_nfRNAseq/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop_nfRNAseq/livereload" data-no-instant defer></script>
   
   <meta charset="utf-8">
 
@@ -46,9 +46,9 @@ One way to run the app is to kick it off in R studio, to do this you can downloa
 
 
 
-  download the app directory to you local pc and use R studio
+  Launching the App on your local R Studio
 
-optional">
+option 1">
   
 
 
@@ -62,7 +62,7 @@ optional">
 
 <meta name="generator" content="Hugo 0.135.0">
   <title>nf-core/DifferentialAbundance | SAGG bioinformatics workshop</title>
-  <link rel="canonical" href="https://sagc-bioinformatics.github.io/workshop_nfRNAseq/differentialabundance/">
+  <link rel="canonical" href="http://localhost:1313/workshop_nfRNAseq/differentialabundance/">
 
 
 
@@ -80,9 +80,9 @@ optional">
     
   
   
-      <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.min.ca70ae019821d0d70b4488a7cda84c279a6ed672a4fe790a33e5b11ea4fe2e5b.css" integrity="sha256-ynCuAZgh0NcLRIinzahMJ5pu1nKk/nkKM&#43;WxHqT&#43;Lls=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.css">
 
-      <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.min.065df42d2be658bb8e0720297aadf469355a5ffaf863b00e3cce0627dd106ca0.css" integrity="sha256-Bl30LSvmWLuOByApeq30aTVaX/r4Y7AOPM4GJ90QbKA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.css">
 
 
 
@@ -187,12 +187,12 @@ You can check the ~/.nextflow/assets folders to see what is already installed</p
 
 
 
-<h3 id="download-the-app-directory-to-you-local-pc-and-use-r-studio">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#download-the-app-directory-to-you-local-pc-and-use-r-studio">download the app directory to you local pc and use R studio</a>
-</h3>
-<p><em><strong>optional</strong></em></p>
-<p>The easiest way to run your R shiny app is using R studio, using the following code, howover on the day we are going to host the App with the same Nectar VM you have been using.</p>
-<p>Firstly download the nf-core/DifferentialAbundance outputs which you have generated to your pc using scp</p>
+<h2 id="launching-the-app-on-your-local-r-studio">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#launching-the-app-on-your-local-r-studio">Launching the App on your local R Studio</a>
+</h2>
+<p><em><strong>option 1</strong></em></p>
+<p>The easiest way to run your R shiny app is using R studio.</p>
+<p>Firstly, you will need to download the nf-core/DifferentialAbundance outputs which you have generated to your pc using scp.</p>
 
   
 
@@ -202,14 +202,13 @@ You can check the ~/.nextflow/assets folders to see what is already installed</p
 </span></span><span class="line"><span class="cl">scp -r workshop@<span class="nv">$IP</span>:/home/workshop/workshop/nfDifferentialAbundance/outs/ ~/workshop_RNAseq/nfDifferentialAbundance/
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop_RNAseq/nfDifferentialAbundance/outs</span></span></code></pre></div>
-<p>Then open Rstudio and copy this code</p>
+<p>Open R studio, and paste the following R code. This also requires installation of a few packages in Rstudio including the *<strong>shinyngs</strong> package. The installation code is hashed out in this case.</p>
+<p>Within R studio, in the top left panel you can paste this code</p>
 
   
 
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">##To run shiny App Locally</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">##To run shiny App</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># run this in R studio</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># install packages</span>
 </span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;remotes&#34;</span><span class="p">)</span>
@@ -218,23 +217,22 @@ You can check the ~/.nextflow/assets folders to see what is already installed</p
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">shinyngs</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># navigate to where the shiny app is, where you have downloaded it to.</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># if you have downloaded the app locally then you will need to add your path to the working directory</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># if you downloaded it to the directory described above, this is where it will be  &#39;~/workshop_RNAseq/nfDifferentialAbundance&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/Users/danielthomson/workshop_RNAseq/nfDifferentialAbundance/outs/shinyngs_app/SAGC_Workshop_RNAseq&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#####</span>
-</span></span><span class="line"><span class="cl"><span class="n">esel</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="s">&#34;data.rds&#34;</span><span class="p">)</span> <span class="c1"># your need to navigate to the &#39;shinyngs_app&#39; directory</span>
+</span></span><span class="line"><span class="cl"><span class="n">esel</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="s">&#34;data.rds&#34;</span><span class="p">)</span> <span class="c1"># you need to navigate to the &#39;shinyngs_app&#39; directory</span>
 </span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">&lt;-</span> <span class="nf">prepareApp</span><span class="p">(</span><span class="s">&#34;rnaseq&#34;</span><span class="p">,</span> <span class="n">esel</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">shiny</span><span class="o">::</span><span class="nf">shinyApp</span><span class="p">(</span><span class="n">app</span><span class="o">$</span><span class="n">ui</span><span class="p">,</span> <span class="n">app</span><span class="o">$</span><span class="n">server</span><span class="p">)</span></span></span></code></pre></div>
 
 
 
-<h1 id="using-rstudio-via-nectar">
+<h2 id="using-rstudio-via-nectar">
   <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#using-rstudio-via-nectar">Using Rstudio via Nectar</a>
-</h1>
-<p><em><strong>optional</strong></em></p>
+</h2>
+<p><em><strong>option 2</strong></em></p>
+<p>You can also run Rstudio from a virual machine. In some cases this is preferable when dealing with large datasets, where you can control the compute resources used. \</p>
 <table>
   <thead>
       <tr>
@@ -253,6 +251,95 @@ You can check the ~/.nextflow/assets folders to see what is already installed</p
       </tr>
   </tbody>
 </table>
+<p>you shoulud see the following login page, access with your passoword<br>
+<img src="Nectar_Rstudio.png" alt="Nectar Rstudio"></p>
+<p>Within R studio, in the top left panel you can paste this code, making sure the path to the app directory is correct.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">##To run shiny App</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># run this in R studio</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># install packages</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#install.packages(&#34;remotes&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#if (!require(&#34;BiocManager&#34;, quietly = TRUE))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  install.packages(&#34;BiocManager&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#BiocManager::install(c(&#34;SummarizedExperiment&#34;, &#34;GSEABase&#34;, &#34;limma&#34;), force = TRUE)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#devtools::install_github(&#39;pinin4fjords/shinyngs&#39;, force = TRUE)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">remotes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">shinyngs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># navigate to where the shiny app is</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># if you are working on Rstudio running on your nectar instance, then this should be in the &#39;out&#39; directory from where you ran the nf-core/DiferentialAbundance pipeline</span>
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/home/workshop/workshop/nfDifferentialAbundance/outs/shinyngs_app/SAGC_Workshop_RNAseq/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#####</span>
+</span></span><span class="line"><span class="cl"><span class="n">esel</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="s">&#34;data.rds&#34;</span><span class="p">)</span> <span class="c1"># you need to navigate to the &#39;shinyngs_app&#39; directory</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">&lt;-</span> <span class="nf">prepareApp</span><span class="p">(</span><span class="s">&#34;rnaseq&#34;</span><span class="p">,</span> <span class="n">esel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">shiny</span><span class="o">::</span><span class="nf">shinyApp</span><span class="p">(</span><span class="n">app</span><span class="o">$</span><span class="n">ui</span><span class="p">,</span> <span class="n">app</span><span class="o">$</span><span class="n">server</span><span class="p">)</span></span></span></code></pre></div>
+
+
+
+<h1 id="interractive-rnaseq-data-analysis">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#interractive-rnaseq-data-analysis">Interractive RNAseq data analysis</a>
+</h1>
+<p>This previous step is worth the hastle, because it gives you access to the R Shiny App with all your results available.</p>
+<p><img src="RshinyHomepage.png" alt=""></p>
+<p>From here, you will see all the parameters you set up in your <em>nextflow run</em> kickoff script. And it will give you access to the data analysis.</p>
+<p>Once you&rsquo;ve made it to this point take some time to navigate around. You will see interactive versions of many key differential expression analysis tools. In the background, it is being run in your Rstudio session.</p>
+<p>Now that we have done the combined work of what would take days writing R code for DEseq2 and ggplot2, there is a fair bit to unpack and understand <br>
+We&rsquo;ll walk through some of the key analysis, results.</p>
+<p><img src="Rshiny_volcano.png" alt=""></p>
+<p><img src="RshinyExperimentalData.png" alt="">
+You can see from the &lsquo;Experimental data&rsquo; page, all of the information came from the sample sheet provided to nf-core/DifferentialAbudance.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> home/workshop/workshop/nfDifferentialAbundance/
+</span></span><span class="line"><span class="cl">cat SampleSheet.csv </span></span></code></pre></div>
+<p>sample,fastq_1,fastq_2,treatment,cellline,condition
+Acontrol1,,,control,A,Acontrol
+Acontrol2,,,control,A,Acontrol
+Acontrol3,,,control,A,Acontrol
+Acontrol4,,,control,A,Acontrol
+Atreated1,,,treated,A,Atreated
+Atreated2,,,treated,A,Atreated
+Atreated3,,,treated,A,Atreated
+Atreated4,,,treated,A,Atreated
+Bcontrol1,,,control,B,Bcontrol
+Bcontrol2,,,control,B,Bcontrol
+Bcontrol3,,,control,B,Bcontrol
+Bcontrol4,,,control,B,Bcontrol
+Btreated1,,,treated,B,Btreated
+Btreated2,,,treated,B,Btreated
+Btreated3,,,treated,B,Btreated
+Btreated4,,,treated,B,Btreated</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat contrasts.csv </span></span></code></pre></div>
+<pre><code>id,variable,reference,target
+cellline,cellline,A,B
+treatedVScontrol1,condition,Acontrol,Atreated
+treatedVScontrol2,condition,Bcontrol,Btreated
+</code></pre>
+<p>There is the opportunity to add as many extra columns to this table, which will all provide extra possible comparisons to the app.</p>
+<p><img src="RowMetadata.png" alt="">
+Looking at the &lsquo;row metadata&rsquo; page, you can see that all the gene information comes from the <em><strong>gtf</strong></em> file which we used.<br>
+For well annotated genomes like Hg38 (human) there is alot of extra information that can be pulled out.</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">head -n <span class="m">10</span> genome.gtf</span></span></code></pre></div>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">head -n <span class="m">10</span> genome.gtf</span></span></code></pre></div>
 
   
 
