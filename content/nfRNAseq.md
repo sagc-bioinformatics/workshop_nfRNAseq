@@ -18,7 +18,10 @@ cd ~/workshop/nfcore
 
 nf-core launch -h
 ```
-![nf-core launch](nfcorelaunch.png)
+Launch a pipeline using a web GUI or command line prompts.                                         
+ Uses the pipeline schema file to collect inputs for all available pipeline parameters. 
+ When finished, saves a file with the selected parameters which can be passed to Nextflow using the 
+ -params-file option.    
 
 ```bash
 nf-core launch nf-core/rnaseq
@@ -31,6 +34,7 @@ nf-core launch nf-core/rnaseq
 selecting the release will download the pipeline, effectively running 'nextflow pull
 you can see the key nextflow files are pulled to the ~/.nextflow directory, including the key executables and configs (nextflow.config, main.nf)\
 (exit with control+c if needed)
+
 ```bash
 ls /home/workshop/.nextflow/assets/nf-core/rnaseq/
 ```
@@ -40,16 +44,49 @@ you can then select GUI or command line, with the GUI giving a URL to access via
 
 ![](GUI.png)
 
-let's continue with adding variables with nf-core launch
+we can continue with adding variables with nf-core launch
 ```
+	-name test
+	-profile singularity \
+	-resume
+	--input nfSampleSheet.csv \
+	--outdir Out \
+	--fasta Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa \
+	--gtf Homo_sapiens.GRCh38.111.gtf \
+```
+this will give you a nf-core launch command with those variable
+```
+nf-core launch --id 1728482936_6064841c2138
+```
+- alternatively you can use a nextflow run command
+
+- no need to run this command, in the interest of time (and the lack of disk space on your intance), I've pre-prepared the outputs for this run. We will run the next pipeline to completion.
+
+navigate to run directory to see the nextflow run command
+```bash
+cd ~/workshop/RNAseq
+ls
+cat nf_rnaseq.sh
+```
+![](runcommand.png)
+
+```bash
+cat nfSampleSheet.csv
+```
+![](samplesheet.png)
+
+#### dataset
+The dataset used throughout this workshop is as follow:
 
 ```
- use the arrow keys to select the parameters to build a 'run' command with the selected parameters
-'Web based'
-- LOTS of TEXT to FILL OUT here
-- if we have time at the end can go through other pipelines in more details if anyone has specific questions
+- 16 Samples sequenced with an MGI400 sequencer at SAGC using the Tecan Universal RNA-seq library protocol.
+- 2 different cancer cell lines (human)
+- treatment vs control
+- 4 replicates for each
 ```
-- you can exit the GUI (graphical user interphase) using **control** + **c**
+- the information is reflected in the samplesheet and run command
+
+# Results
 
 
 
