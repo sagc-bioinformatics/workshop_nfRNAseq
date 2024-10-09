@@ -4,7 +4,6 @@ title = 'nf-core/smRNAseq'
 https://nf-co.re/smrnaseq/2.2.1/
 
 #### nf-core/smRNAseq
-test
 
 Pipeline summary
 1. Raw read QC (FastQC)

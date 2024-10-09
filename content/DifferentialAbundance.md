@@ -20,48 +20,46 @@ nf-core/differentialabundance is a bioinformatics pipeline that can be used to a
 - for this reason there is a completed run in ~/workshop/nfDifferentialAbundance/, where you can go through the motions
 - a good chance to demonstrate the **resume** feature of nextflow
 
-
 ```bash
-mkdir ~/workshop/nfDifferentialAbundance2
-cd ~/workshop/nfDifferentialAbundance2
+mkdir ~/workshop/DifferentialAbundance
+cd ~/workshop/DifferentialAbundance
 ls -l
 ```
 ***optional*** you can use the nf-core launch command to build a launch command, but these instructions will be using a 'nextflow run' command
 
-The minimal input requirements are
-1. Sample sheet
-- containg the sample information, metadata and group relationships
-
-2
-
-
-
-
-nf-core launch 
-```
-
-
-
-
-
-
-
-#### 
-nf-core/DifferentialAbundance
-
-There are a few ways of installing the nf-core pipeline. But this happens automatically when you use a *nexflow run nf-core/* commands.
 You can check the ~/.nextflow/assets folders to see what is already installed
-
-```
+```bash
 ls -l ~/.nextflow/assets/nf-core/
 ```
-If you don't see the pipeline, you can pull it from the nf-core website. 
+If you don't see the pipeline, you can pull it from the nf-core website.
 ```bash
 nextflow pull nf-core/differentialabundance
 ```
 but this happeds automatically when running the nextflow run nf-core/differentialabundance
 
 ![nfpull](nextflowpull.png)
+
+
+to identify the requirements of the pipeline go to the website
+https://nf-co.re/differentialabundance/1.5.0/docs/usage/
+The minimal input requirements are
+1. Sample sheet, containg the sample information, metadata and group relationships
+2. A counts table, such as that made with the RNAseq pipeline
+3. a transcript length table - this is output from the RNAseq pipeline. It allows for more acurate normalisation based on transcript length.
+4. profile, refering to the config file and the experiment type. rnaseq, singularity.
+5. a gtf file - ideally this is the same genome reference that was used in the mapping step of the nf-core/RNAseq run
+6. optional. gsea gene set for gsea analysis. this can be downloaded from https://www.gsea-msigdb.org/gsea/msigdb/human/collections.jsp
+
+
+For those who just want to get the result, the previous run can be resumed with the following command
+```bash
+cd ~/workshop/nfDifferentialAbundance
+sh nf_differentialabundance.sh
+```
+
+#### multiQC summary
+[link to multiQC](../SAGC_Workshop_RNAseq.html)
+
 
 
 # R Shiny App

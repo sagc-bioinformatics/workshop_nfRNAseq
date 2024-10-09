@@ -159,43 +159,46 @@ for those with more confidence this run can be prepared from scratch in a new di
 
   
 
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir ~/workshop/nfDifferentialAbundance2
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/nfDifferentialAbundance2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir ~/workshop/DifferentialAbundance
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/DifferentialAbundance
 </span></span><span class="line"><span class="cl">ls -l</span></span></code></pre></div>
 <p><em><strong>optional</strong></em> you can use the nf-core launch command to build a launch command, but these instructions will be using a &rsquo;nextflow run&rsquo; command</p>
-<p>The minimal input requirements are</p>
-<ol>
-<li>Sample sheet</li>
-</ol>
-<ul>
-<li>containg the sample information, metadata and group relationships</li>
-</ul>
-<p>2</p>
-<p>nf-core launch</p>
+<p>You can check the ~/.nextflow/assets folders to see what is already installed</p>
 
   
 
-<pre tabindex="0"><code>
-
-
-
-
-
-
-#### 
-nf-core/DifferentialAbundance
-
-There are a few ways of installing the nf-core pipeline. But this happens automatically when you use a *nexflow run nf-core/* commands.
-You can check the ~/.nextflow/assets folders to see what is already installed</code></pre>
-<p>ls -l ~/.nextflow/assets/nf-core/</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -l ~/.nextflow/assets/nf-core/</span></span></code></pre></div>
+<p>If you don&rsquo;t see the pipeline, you can pull it from the nf-core website.</p>
 
   
 
-<pre tabindex="0"><code>If you don&#39;t see the pipeline, you can pull it from the nf-core website. 
-```bash
-nextflow pull nf-core/differentialabundance</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nextflow pull nf-core/differentialabundance</span></span></code></pre></div>
 <p>but this happeds automatically when running the nextflow run nf-core/differentialabundance</p>
 <p><img src="nextflowpull.png" alt="nfpull"></p>
+<p>to identify the requirements of the pipeline go to the website
+<a href="https://nf-co.re/differentialabundance/1.5.0/docs/usage/">https://nf-co.re/differentialabundance/1.5.0/docs/usage/</a>
+The minimal input requirements are</p>
+<ol>
+<li>Sample sheet, containg the sample information, metadata and group relationships</li>
+<li>A counts table, such as that made with the RNAseq pipeline</li>
+<li>a transcript length table - this is output from the RNAseq pipeline. It allows for more acurate normalisation based on transcript length.</li>
+<li>profile, refering to the config file and the experiment type. rnaseq, singularity.</li>
+<li>a gtf file - ideally this is the same genome reference that was used in the mapping step of the nf-core/RNAseq run</li>
+<li>optional. gsea gene set for gsea analysis. this can be downloaded from <a href="https://www.gsea-msigdb.org/gsea/msigdb/human/collections.jsp">https://www.gsea-msigdb.org/gsea/msigdb/human/collections.jsp</a></li>
+</ol>
+<p>For those who just want to get the result, the previous run can be resumed with the following command</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/nfDifferentialAbundance
+</span></span><span class="line"><span class="cl">sh nf_differentialabundance.sh</span></span></code></pre></div>
+
+
+
+<h4 id="multiqc-summary">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#multiqc-summary">multiQC summary</a>
+</h4>
+<p><a href="../SAGC_Workshop_RNAseq.html">link to multiQC</a></p>
 
 
 
