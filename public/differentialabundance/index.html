@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/workshop_nfRNAseq/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop_nfRNAseq/livereload" data-no-instant defer></script>
+<head>
   
   <meta charset="utf-8">
 
@@ -30,7 +30,25 @@ If you don&rsquo;t see the pipeline, you can pull it from the nf-core website.
 
 nextflow pull nf-core/differentialabundance
 but this happeds automatically when running the nextflow run nf-core/differentialabundance
-">
+
+
+
+
+
+  R Shiny App
+
+
+one of the key outputs from the nf-core/DifferentialAbundance pipeline is an Shiny app.
+This runs R processes in the background and presents the data as a site.
+One way to run the app is to kick it off in R studio, to do this you can download the App directory and use the following R code to open it.
+
+
+
+
+
+  download the app directory to you local pc and use R studio
+
+optional">
   
 
 
@@ -44,7 +62,7 @@ but this happeds automatically when running the nextflow run nf-core/differentia
 
 <meta name="generator" content="Hugo 0.135.0">
   <title>nf-core/DifferentialAbundance | SAGG bioinformatics workshop</title>
-  <link rel="canonical" href="http://localhost:1313/workshop_nfRNAseq/differentialabundance/">
+  <link rel="canonical" href="https://sagc-bioinformatics.github.io/workshop_nfRNAseq/differentialabundance/">
 
 
 
@@ -62,9 +80,9 @@ but this happeds automatically when running the nextflow run nf-core/differentia
     
   
   
-    <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.css">
+      <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.min.ca70ae019821d0d70b4488a7cda84c279a6ed672a4fe790a33e5b11ea4fe2e5b.css" integrity="sha256-ynCuAZgh0NcLRIinzahMJ5pu1nKk/nkKM&#43;WxHqT&#43;Lls=" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.css">
+      <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.min.065df42d2be658bb8e0720297aadf469355a5ffaf863b00e3cce0627dd106ca0.css" integrity="sha256-Bl30LSvmWLuOByApeq30aTVaX/r4Y7AOPM4GJ90QbKA=" crossorigin="anonymous">
 
 
 
@@ -155,6 +173,86 @@ You can check the ~/.nextflow/assets folders to see what is already installed</p
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nextflow pull nf-core/differentialabundance</span></span></code></pre></div>
 <p>but this happeds automatically when running the nextflow run nf-core/differentialabundance</p>
 <p><img src="nextflowpull.png" alt="nfpull"></p>
+
+
+
+<h1 id="r-shiny-app">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#r-shiny-app">R Shiny App</a>
+</h1>
+<ul>
+<li>one of the key outputs from the nf-core/DifferentialAbundance pipeline is an Shiny app.</li>
+<li>This runs R processes in the background and presents the data as a site.</li>
+<li>One way to run the app is to kick it off in R studio, to do this you can download the App directory and use the following R code to open it.</li>
+</ul>
+
+
+
+<h3 id="download-the-app-directory-to-you-local-pc-and-use-r-studio">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#download-the-app-directory-to-you-local-pc-and-use-r-studio">download the app directory to you local pc and use R studio</a>
+</h3>
+<p><em><strong>optional</strong></em></p>
+<p>The easiest way to run your R shiny app is using R studio, using the following code, howover on the day we are going to host the App with the same Nectar VM you have been using.</p>
+<p>Firstly download the nf-core/DifferentialAbundance outputs which you have generated to your pc using scp</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">IP</span><span class="o">=[</span>yourIPaddress<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p  ~/workshop_RNAseq/nfDifferentialAbundance 
+</span></span><span class="line"><span class="cl">scp -r workshop@<span class="nv">$IP</span>:/home/workshop/workshop/nfDifferentialAbundance/outs/ ~/workshop_RNAseq/nfDifferentialAbundance/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop_RNAseq/nfDifferentialAbundance/outs</span></span></code></pre></div>
+<p>Then open Rstudio and copy this code</p>
+
+  
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">##To run shiny App Locally</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># run this in R studio</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># install packages</span>
+</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;remotes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#34;pinin4fjords/shinyngs&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">remotes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">shinyngs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#######################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># navigate to where the shiny app is, where you have downloaded it to.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/Users/danielthomson/workshop_RNAseq/nfDifferentialAbundance/outs/shinyngs_app/SAGC_Workshop_RNAseq&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#####</span>
+</span></span><span class="line"><span class="cl"><span class="n">esel</span> <span class="o">&lt;-</span> <span class="nf">readRDS</span><span class="p">(</span><span class="s">&#34;data.rds&#34;</span><span class="p">)</span> <span class="c1"># your need to navigate to the &#39;shinyngs_app&#39; directory</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">&lt;-</span> <span class="nf">prepareApp</span><span class="p">(</span><span class="s">&#34;rnaseq&#34;</span><span class="p">,</span> <span class="n">esel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">shiny</span><span class="o">::</span><span class="nf">shinyApp</span><span class="p">(</span><span class="n">app</span><span class="o">$</span><span class="n">ui</span><span class="p">,</span> <span class="n">app</span><span class="o">$</span><span class="n">server</span><span class="p">)</span></span></span></code></pre></div>
+
+
+
+<h1 id="using-rstudio-via-nectar">
+  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/differentialabundance/#using-rstudio-via-nectar">Using Rstudio via Nectar</a>
+</h1>
+<p><em><strong>optional</strong></em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">setting</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Host</td>
+          <td style="text-align: left">use the instance IP address, or the hostname [hostname].[project].cloud.edu.au</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Login</td>
+          <td style="text-align: left">use the username you created in the Configure Application dialog</td>
+      </tr>
+  </tbody>
+</table>
 
   
 

@@ -9,8 +9,8 @@ We will be using the [ARDC Nectar Research Cloud](https://ardc.edu.au/services/a
 ![](nectar_logo.png)
 
 ### Requirements
-- terminal applciation installed
-- or alternativelly Visual Studio Code installed\
+- terminal application installed
+- or alternativly Visual Studio Code installed\
 *please see instructions below if don't have either of these*
 
 ### Accessing nectar using a ssh (Secure Shell) command
@@ -207,6 +207,7 @@ echo 'export PATH=${PATH}:~/bin/miniconda3/bin' >> ~/.bashrc && \
 add bioconda to conda channel
 ```bash
 conda config --add channels bioconda
+conda config --add channels conda-forge
 
 ```
 #### install nf-core tools
@@ -227,6 +228,9 @@ conda env list
 
 #activate this environment
 conda activate nf-core
+
+# install  version 2.14.1 (nf-core version 3 just came out)
+conda install nf-core=2.14.1
 
 # test installation
 nextflow -v

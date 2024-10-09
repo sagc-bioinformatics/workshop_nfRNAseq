@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/workshop_nfRNAseq/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop_nfRNAseq/livereload" data-no-instant defer></script>
+<head>
   
   <meta charset="utf-8">
 
@@ -26,8 +26,8 @@ We will be using the ARDC Nectar Research Cloud to perform RNAseq analyses
   Requirements
 
 
-terminal applciation installed
-or alternativelly Visual Studio Code installed
+terminal application installed
+or alternativly Visual Studio Code installed
 please see instructions below if don&rsquo;t have either of these
 
 
@@ -50,7 +50,7 @@ To access Nectar you will need the following">
 
 <meta name="generator" content="Hugo 0.135.0">
   <title>Setup | SAGG bioinformatics workshop</title>
-  <link rel="canonical" href="http://localhost:1313/workshop_nfRNAseq/setup_environment/">
+  <link rel="canonical" href="https://sagc-bioinformatics.github.io/workshop_nfRNAseq/setup_environment/">
 
 
 
@@ -68,9 +68,9 @@ To access Nectar you will need the following">
     
   
   
-    <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.css">
+      <link rel="stylesheet" href="/workshop_nfRNAseq/css/base.min.ca70ae019821d0d70b4488a7cda84c279a6ed672a4fe790a33e5b11ea4fe2e5b.css" integrity="sha256-ynCuAZgh0NcLRIinzahMJ5pu1nKk/nkKM&#43;WxHqT&#43;Lls=" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.css">
+      <link rel="stylesheet" href="/workshop_nfRNAseq/css/syntax.min.065df42d2be658bb8e0720297aadf469355a5ffaf863b00e3cce0627dd106ca0.css" integrity="sha256-Bl30LSvmWLuOByApeq30aTVaX/r4Y7AOPM4GJ90QbKA=" crossorigin="anonymous">
 
 
 
@@ -159,8 +159,8 @@ To access Nectar you will need the following">
   <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/setup_environment/#requirements">Requirements</a>
 </h3>
 <ul>
-<li>terminal applciation installed</li>
-<li>or alternativelly Visual Studio Code installed<br>
+<li>terminal application installed</li>
+<li>or alternativly Visual Studio Code installed<br>
 <em>please see instructions below if don&rsquo;t have either of these</em></li>
 </ul>
 
@@ -415,7 +415,8 @@ Sahmri HPC, Nectar or Deepthought will already have it installed</p>
 
   
 
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda config --add channels bioconda</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda config --add channels bioconda
+</span></span><span class="line"><span class="cl">conda config --add channels conda-forge</span></span></code></pre></div>
 
 
 
@@ -440,6 +441,9 @@ Sahmri HPC, Nectar or Deepthought will already have it installed</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#activate this environment</span>
 </span></span><span class="line"><span class="cl">conda activate nf-core
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># install  version 2.14.1 (nf-core version 3 just came out)</span>
+</span></span><span class="line"><span class="cl">conda install nf-core<span class="o">=</span>2.14.1
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># test installation</span>
 </span></span><span class="line"><span class="cl">nextflow -v

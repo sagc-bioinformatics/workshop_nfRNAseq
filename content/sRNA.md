@@ -4,7 +4,7 @@ title = 'nf-core/smRNAseq'
 https://nf-co.re/smrnaseq/2.2.1/
 
 #### nf-core/smRNAseq
-
+test
 
 Pipeline summary
 1. Raw read QC (FastQC)
@@ -33,3 +33,63 @@ Pipeline summary
 
 #### running nf-core/sRNAseq
 ![](/sRNA/smRNAseq_log.png)
+
+small RNA multiqc
+[link to small RNA multiqc](../workshop-small-RNAseq_multiqc_report.html)
+
+
+# Downloading the data to you local PC
+working on an hpc environment has some drawbacks, one being that viewing images and html files isn't as straightforward as it is on your pc. So that we can view the outputs together, this next step is to download the data from the nectar cloud to you pc 
+
+to promote be good practice, we will first compress the whole directory using `tar` and run an md5sum check, to show that the download hasn't corrupted the data.
+
+```bash
+cd ~/workshop
+tar -cvf smallRNA.tar smallRNA
+
+md5sum smallRNA.tar > smallRNA.md5sum
+md5sum smallRNA.tar
+```
+the md5sum value should print to you screen, you could also save it as a txt file to view later 
+```
+bee6e0161d40eb934c2ad0b4c2db1898  smallRNA.tar
+```
+you can do the same on you downloaded copy, to make sure it's exactly the same data.
+
+### downloading with scp
+we will be using ***scp*** (ssh copy)
+
+You will need the same information as what you used to log in with `ssh`
+
+|   |            |                        |
+|---|------------|------------------------|
+| 1 | username   | **workshop**           |
+| 2 | password   | **Sagc_2024**          |
+| 3 | IP address | ***given on the day*** |
+
+```bash
+# open a local shell terminal, make a directory and move to it
+mkdir -p  ~/workshop_RNAseq/smallRNA 
+cd ~/workshop_RNAseq/smallRNA
+```
+
+#example only, use your own IP address
+IP=[yourIPaddress]
+```bash
+scp -r workshop@${IP}:/home/workshop/workshop/smallRNA.tar .
+
+#eg. scp -r workshop@${IP}:/home/workshop/workshop/smallRNA . 
+```
+- this file is 617M, it should take a minute or less to downlaod
+
+now on your local environment, you can run the same md5sum command
+
+```bash
+md5sum smallRNA.tar
+```
+the value should be exactly the same, showing the files are exact to the bit.
+
+you can now uncompress the directory
+```bash
+tar -xvf smallRNA.tar
+```

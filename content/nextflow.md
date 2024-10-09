@@ -11,7 +11,7 @@ Nextflow is very a powerful tool for software development
 
 In this workshop we will using nf-core pipelines, which have been built with nextflow, to analyse RNAseq data.
 
-But that all starts with getting nextflow running, so this section is designed to give you a quick view of what's required to run nextflow.
+But that all starts with getting nextflow running, so this section is designed to give you an overview of what's required to run nextflow.
 
 #### log into nectar instance with provided username and IP address
 ```bash

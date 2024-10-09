@@ -84,4 +84,3 @@ The dataset used throughout this workshop is as follow:
 
 
 [link to multiqc report](../multiqc_report.html)
-[link to RNAseq Background slides](../Workshop_RNAseq_Intro.pdf)
