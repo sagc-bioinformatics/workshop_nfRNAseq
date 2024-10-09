@@ -18,32 +18,27 @@ nf-core/RNAseq the most popular nf-core pipeline.
   
 
 nf-core list -s stars
-1. Merge re-sequenced FastQ files (cat)
-2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
-3. Read QC (FastQC)
-4. UMI extraction (UMI-tools)
-5. Adapter and quality trimming (Trim Galore!)
-6. Removal of genome contaminants (BBSplit)
-7. Removal of ribosomal RNA (SortMeRNA)
-8. Choice of multiple alignment and quantification routes:
-	1. STAR -&gt; Salmon
-	2. STAR -&gt; RSEM
-	3. HiSAT2 -&gt; NO QUANTIFICATION
-9. Sort and index alignments (SAMtools)
-10. UMI-based deduplication (UMI-tools)
-11. Duplicate read marking (picard MarkDuplicates)
-12. Transcript assembly and quantification (StringTie)
-13. Create bigWig coverage files (BEDTools, bedGraphToBigWig)
-14. Extensive quality control:
-	1. RSeQC
-	2. Qualimap
-	3. dupRadar
-	4. Preseq
-	5. DESeq2
-15. Pseudoalignment and quantification (Salmon or ‘Kallisto’; optional)
-16. Present QC for raw read, alignment, gene biotype, sample similarity, and strand-specificity checks (MultiQC, R)
+lets use nf-core tools to build a command to run the nf-core/RNAseq pipeline
 
-In this section we will work through setting up the nf-core/RNAseq pipeline. We will be chosing specific parameters and finally, going through was the output looks like.">
+  
+
+mkdir ~/workshop/nfcore
+cd ~/workshop/nfcore  
+
+nf-core launch -h
+
+
+  
+
+nf-core launch nf-core/rnaseq
+
+  
+
+- use the arrow keys to select the following parameters
+	- select release - version &#39;3.14.0&#39; 
+selecting the release will download the pipeline, effectively running &rsquo;nextflow pull
+you can see the key nextflow files are pulled to the ~/.nextflow directory, including the key executables and configs (nextflow.config, main.nf)
+(exit with control&#43;c if needed)">
   
 
 
@@ -155,117 +150,126 @@ In this section we will work through setting up the nf-core/RNAseq pipeline. We 
   
 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core list -s stars</span></span></code></pre></div>
-<pre><code>1. Merge re-sequenced FastQ files (cat)
-2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
-3. Read QC (FastQC)
-4. UMI extraction (UMI-tools)
-5. Adapter and quality trimming (Trim Galore!)
-6. Removal of genome contaminants (BBSplit)
-7. Removal of ribosomal RNA (SortMeRNA)
-8. Choice of multiple alignment and quantification routes:
-	1. STAR -&gt; Salmon
-	2. STAR -&gt; RSEM
-	3. HiSAT2 -&gt; NO QUANTIFICATION
-9. Sort and index alignments (SAMtools)
-10. UMI-based deduplication (UMI-tools)
-11. Duplicate read marking (picard MarkDuplicates)
-12. Transcript assembly and quantification (StringTie)
-13. Create bigWig coverage files (BEDTools, bedGraphToBigWig)
-14. Extensive quality control:
-	1. RSeQC
-	2. Qualimap
-	3. dupRadar
-	4. Preseq
-	5. DESeq2
-15. Pseudoalignment and quantification (Salmon or ‘Kallisto’; optional)
-16. Present QC for raw read, alignment, gene biotype, sample similarity, and strand-specificity checks (MultiQC, R)
-</code></pre>
-<p>In this section we will work through setting up the nf-core/RNAseq pipeline. We will be chosing specific parameters and finally, going through was the output looks like.</p>
-
-
-
-<h1 id="setting-up-nf-corernaseq">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#setting-up-nf-corernaseq">setting up nf-core/RNAseq</a>
-</h1>
-
-
-
-<h4 id="dataset">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#dataset">dataset</a>
-</h4>
-<p>The dataset used throughout this workshop is as follow:</p>
+<p>lets use nf-core tools to build a command to run the nf-core/RNAseq pipeline</p>
 
   
 
-<pre tabindex="0"><code>- 16 Samples sequenced with an MGI400 sequencer at SAGC using the Tecan Universal RNA-seq library protocol.
-- 2 different cancer cell lines (human)
-- treatment vs control
-- 4 replicates for each</code></pre>
-<p><em><strong>NOTE</strong></em> some concessions had to be made to work with this for workshop. Taking into account the large file sizes, the long run times and need for high compute resources.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir ~/workshop/nfcore
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workshop/nfcore  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nf-core launch -h</span></span></code></pre></div>
+<p><img src="nfcorelaunch.png" alt="nf-core launch"></p>
 
+  
 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nf-core launch nf-core/rnaseq</span></span></code></pre></div>
 
-<h4 id="what-are-the-inputs-to-an-rnaseq-pipeline">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#what-are-the-inputs-to-an-rnaseq-pipeline">what are the inputs to an RNAseq pipeline</a>
-</h4>
+  
 
+<pre tabindex="0"><code>- use the arrow keys to select the following parameters
+	- select release - version &#39;3.14.0&#39; </code></pre>
+<p>selecting the release will download the pipeline, effectively running &rsquo;nextflow pull
+you can see the key nextflow files are pulled to the ~/.nextflow directory, including the key executables and configs (nextflow.config, main.nf)<br>
+(exit with control+c if needed)</p>
 
+  
 
-<h1 id="fastq-fastqgz">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fastq-fastqgz">.fastq /.fastq.gz</a>
-</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /home/workshop/.nextflow/assets/nf-core/rnaseq/</span></span></code></pre></div>
+<p>This is one of many ways to pull a nf-core pipeline.</p>
+<p>you can then select GUI or command line, with the GUI giving a URL to access via a browser by copying and pasting.</p>
+<p><img src="GUI.png" alt=""></p>
+<p>let&rsquo;s continue with adding variables with nf-core launch</p>
 
   
 
 <pre tabindex="0"><code></code></pre>
-<p><img src="../fastqfile.png" alt=""></p>
-
-
-
-<h1 id="fasta">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#fasta">.fasta</a>
-</h1>
-
-
-
-<h1 id="gtf">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#gtf">.gtf</a>
-</h1>
-
-
-
-<h1 id="bed">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bed">.bed</a>
-</h1>
-<p><img src="../bedfile.png" alt=""></p>
-
-
-
-<h4 id="genomic-file-formats">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#genomic-file-formats">Genomic file formats</a>
-</h4>
+<p>use the arrow keys to select the parameters to build a &lsquo;run&rsquo; command with the selected parameters
+&lsquo;Web based&rsquo;</p>
 <ul>
-<li>now that we have gone through how to run the nf-core/RNAseq pipeline. Let&rsquo;s look at the inputs and outputs in detail.</li>
-<li>using this chance to describe what are the key genomic file formats used in RNAseq and beyond</li>
-<li>Knowing what these files are isn&rsquo;t only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformati$</li>
-<li>being able to use and manipulate each file open&rsquo;s up many opportunities, and is often required for troubleshooting wehn something has gone w$</li>
-<li>many files are plain text files, this means they can be manipluated with basic text editing. I&rsquo;ll be going through some examples.</li>
-<li>For a more visual perspective, we&rsquo;ll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information eac$</li>
+<li>LOTS of TEXT to FILL OUT here</li>
+<li>if we have time at the end can go through other pipelines in more details if anyone has specific questions</li>
 </ul>
 
+  
 
-
-<h1 id="bam">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bam">bam</a>
-</h1>
-<p><img src="../bamfile.png" alt=""></p>
+<pre tabindex="0"><code>- you can exit the GUI (graphical user interphase) using **control** + **c**
 
 
 
-<h1 id="bigwig">
-  <a class="Heading-link u-clickable" href="/workshop_nfRNAseq/nfrnaseq/#bigwig">bigwig</a>
-</h1>
-<p><a href="../multiqc_report.html">link to multiqc report</a></p>
+	1. Merge re-sequenced FastQ files (cat)
+	2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
+	3. Read QC (FastQC)
+	4. UMI extraction (UMI-tools)
+	5. Adapter and quality trimming (Trim Galore!)
+	6. Removal of genome contaminants (BBSplit)
+	7. Removal of ribosomal RNA (SortMeRNA)
+	8. Choice of multiple alignment and quantification routes:
+		1. STAR -&gt; Salmon
+		2. STAR -&gt; RSEM
+		3. HiSAT2 -&gt; NO QUANTIFICATION
+	9. Sort and index alignments (SAMtools)
+	10. UMI-based deduplication (UMI-tools)
+	11. Duplicate read marking (picard MarkDuplicates)
+	12. Transcript assembly and quantification (StringTie)
+	13. Create bigWig coverage files (BEDTools, bedGraphToBigWig)
+	14. Extensive quality control:
+		1. RSeQC
+		2. Qualimap
+		3. dupRadar
+		4. Preseq
+		5. DESeq2
+	15. Pseudoalignment and quantification (Salmon or ‘Kallisto’; optional)
+	16. Present QC for raw read, alignment, gene biotype, sample similarity, and strand-specificity checks (MultiQC, R)
+
+In this section we will work through setting up the nf-core/RNAseq pipeline. We will be chosing specific parameters and finally, going through was the output looks like.
+
+# setting up nf-core/RNAseq
+
+#### dataset
+The dataset used throughout this workshop is as follow:</code></pre>
+<ul>
+<li>16 Samples sequenced with an MGI400 sequencer at SAGC using the Tecan Universal RNA-seq library protocol.</li>
+<li>2 different cancer cell lines (human)</li>
+<li>treatment vs control</li>
+<li>4 replicates for each</li>
+</ul>
+
+  
+
+<pre tabindex="0"><code>***NOTE*** some concessions had to be made to work with this for workshop. Taking into account the large file sizes, the long run times and need for high compute resources.
+
+#### what are the inputs to an RNAseq pipeline
+
+# .fastq /.fastq.gz</code></pre>
+
+  
+
+<pre tabindex="0"><code>![](../fastqfile.png)
+
+# .fasta
+
+# .gtf
+
+# .bed
+![](../bedfile.png)
+
+#### Genomic file formats
+- now that we have gone through how to run the nf-core/RNAseq pipeline. Let&#39;s look at the inputs and outputs in detail.
+- using this chance to describe what are the key genomic file formats used in RNAseq and beyond
+- Knowing what these files are isn&#39;t only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformati$
+- being able to use and manipulate each file open&#39;s up many opportunities, and is often required for troubleshooting wehn something has gone w$
+- many files are plain text files, this means they can be manipluated with basic text editing. I&#39;ll be going through some examples.
+- For a more visual perspective, we&#39;ll also be using a genome browser, IGV (Integrative Genome Browser) to get a feel for what information eac$
+
+
+# bam
+![](../bamfile.png)
+
+# bigwig
+
+
+
+[link to multiqc report](../multiqc_report.html)</code></pre>
 
   
 

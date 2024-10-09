@@ -71,23 +71,11 @@ nf-core list -s stars
 ```
 'rnaseq', 'differentialabundance' and 'smRNA' are all strong contenders in popularity. 
 
-There are many other great analysis pipelines on that list, and this workshop can't go into detail into all of them.
+There are many other great analysis pipelines on that list, and this workshop can't go into detail for all of them.
 But I'll use this opportunity to ask what genomics applications the participants are using, and go through some I've tried.
 
-The whole list of pipelines is on the website.
+The whole list of pipelines is also on the website.
 [nf-core/pipelines](https://nf-co.re/pipelines)
 
-![pipelines](/nf-core-pipelines.png)
+![pipelines](nf-core-pipelines.png)
 
-```
-nf-core launch nf-core/rnaseq
-```
-- use the arrow keys to select version '3.14.0' , press enter
-- use the arrow keys to select 'Web based'
-- LOTS of TEXT to FILL OUT here
-- if we have time at the end can go through other pipelines in more details if anyone has specific questions
-
-
-```
-scp
-```

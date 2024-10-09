@@ -11,6 +11,47 @@ nf-core/RNAseq the most popular nf-core pipeline.
 nf-core list -s stars
 ```
 
+lets use nf-core tools to build a command to run the nf-core/RNAseq pipeline
+```bash
+mkdir ~/workshop/nfcore
+cd ~/workshop/nfcore  
+
+nf-core launch -h
+```
+![nf-core launch](nfcorelaunch.png)
+
+```bash
+nf-core launch nf-core/rnaseq
+```
+
+```
+- use the arrow keys to select the following parameters
+	- select release - version '3.14.0' 
+```
+selecting the release will download the pipeline, effectively running 'nextflow pull
+you can see the key nextflow files are pulled to the ~/.nextflow directory, including the key executables and configs (nextflow.config, main.nf)\
+(exit with control+c if needed)
+```bash
+ls /home/workshop/.nextflow/assets/nf-core/rnaseq/
+```
+This is one of many ways to pull a nf-core pipeline. 
+
+you can then select GUI or command line, with the GUI giving a URL to access via a browser by copying and pasting.
+
+![](GUI.png)
+
+let's continue with adding variables with nf-core launch
+```
+
+```
+ use the arrow keys to select the parameters to build a 'run' command with the selected parameters
+'Web based'
+- LOTS of TEXT to FILL OUT here
+- if we have time at the end can go through other pipelines in more details if anyone has specific questions
+```
+- you can exit the GUI (graphical user interphase) using **control** + **c**
+
+
 
 	1. Merge re-sequenced FastQ files (cat)
 	2. Sub-sample FastQ files and auto-infer strandedness (fq, Salmon)
