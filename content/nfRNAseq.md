@@ -11,7 +11,7 @@ nf-core/RNAseq the most popular nf-core pipeline.
 nf-core list -s stars
 ```
 
-lets use nf-core tools to build a command to run the nf-core/RNAseq pipeline
+let's use nf-core tools to build a command to run the nf-core/RNAseq pipeline
 ```bash
 mkdir -p  ~/workshop/nfRNAseq
 cd ~/workshop/nfRNAseq 
@@ -60,7 +60,7 @@ nf-core launch --id 1728482936_6064841c2138
 ```
 - alternatively you can use a nextflow run command
 
-- no need to run this command, in the interest of time (and the lack of disk space on your intance), I've pre-prepared the outputs for this run
+- no need to run this command, in the interest of time (and the lack of disk space on your nectar instance), I've pre-prepared the outputs for this run
 
 navigate to run directory to see the nextflow run command
 ```bash
@@ -88,7 +88,7 @@ The dataset used throughout this workshop is as follow:
 
 #### Run Summary
 
-list results directory. All nf-core outputs have a consistant structure of the outputs
+list results directory. All nf-core outputs have a consistent structure of the outputs
 ```bash
 tree /home/workshop/workshop/nfRNAseq/outs
 ```
@@ -101,7 +101,7 @@ tree /home/workshop/workshop/nfRNAseq/outs
 Quick background on genomic file formats to help describe the inputs and outputs of an NGS experiment.
 Knowing what these files are isn't only important in finding which files to use for a pipeline, but a key foundation of genomic bioinformatics
 Being able to use and manipulate each file open's up many opportunities, and is often required for troubleshooting                           
-Many are plain text files, this means they can be manipluated with basic text editing.
+Many are plain text files, this means they can be manipulated with basic text editing.
 
 ##### .fastq /.fastq.gz
 

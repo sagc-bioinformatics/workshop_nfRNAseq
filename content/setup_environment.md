@@ -1,6 +1,9 @@
 +++
 title = 'Setup'
 +++
+#### Introduction to RNAseq Slides
+[link to RNAseq Background slides](../Workshop_RNAseq_Intro.pdf)
+
 ### Instructions to set up your personal computer
 - *You will need to bring your own PC*
 

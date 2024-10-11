@@ -1,8 +1,8 @@
 +++
 title = 'nextflow introduction'
 +++
-Nextflow is a workflow manager. It strings together chunks of code from any programming language into processess, with designated inputs and outputs. 
-The chunks of code called **processes** are organised into **channels**, effectively organising the collection of codeinto an **pipeline** or workflow.
+Nextflow is a workflow manager. It strings together chunks of code from any programming language into processes, with designated inputs and outputs. 
+The chunks of code called **processes** are organised into **channels**, effectively organising the collection of code into a **pipeline** or workflow.
 
 **key features of Nextflow’s features are:**
 - portability
@@ -47,7 +47,7 @@ which version of nextflow are we using?
 ```bash
 nextflow -version
 ```
-this command will also test wether nextflow is installed, if it isn't see installation instructions
+this command will also test whether nextflow is installed, if it isn't see installation instructions on 'Setup' page
 
       N E X T F L O W
       version 24.04.4 build 5917

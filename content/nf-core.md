@@ -24,7 +24,7 @@ nf-core pipelines are build with a strict structure and key principles.
 To take a closer look at what nf-core pipelines are available, let's make use of the **nf-core tools**
 
 # nf-core tools
-The nf-core command is it's own seperate toolkit. It isn't necessary for running nextflow pipelines, but it can aid usability and you may find it's syntax more approachable.
+The nf-core command is its own separate toolkit. It isn't necessary for running nextflow pipelines, but it can aid usability and you may find it's syntax more approachable.
 For each nf-core pipeline there are multiple ways to run the software, with three of them presented on the homepage of each pipeline.
 
 	1. nexflow run
@@ -34,7 +34,7 @@ For each nf-core pipeline there are multiple ways to run the software, with thre
 ![](nfcoretools.png)
 
 
-**nf-core tools** has been installed to your VM onto its own **conda channel** - see instalation instructions on the setup page.
+**nf-core tools** has been installed to your VM onto its own **conda channel** - see installation instructions on the setup page.
 
 to activate this conda environment with nf-core tools available, run the following.
 ```bash
@@ -55,7 +55,7 @@ you should see a list, with the apple-core header image.
 
 ![](nfcoretools.pnf)
 
-you should see a list, with the apple-core header immage.
+you should see a list, with the apple-core header image.
 
 You can use the 'list' command to see the available pipelines.
 ```bash
