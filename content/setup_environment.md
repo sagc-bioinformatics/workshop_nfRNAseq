@@ -159,7 +159,7 @@ sudo apt-get update && sudo apt-get install -y \
     cryptsetup-bin
 ```
 if you are using an HPC environment without superuser (su) access, then you will have to ask IT/administrator to install it
-Sahmri HPC, Nectar or Deepthought will already have it installed
+Sahmri HPC, Phoenix (adelaide Uni) or Deepthought (Flinders Uni) will already have it installed.
 
 
 - install GO
