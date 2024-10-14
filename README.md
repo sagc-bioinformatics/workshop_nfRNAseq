@@ -1,6 +1,6 @@
 # workshop_nfRNAseq
 
-#### access tutorial here
+#### Access tutorial website here
 https://sagc-bioinformatics.github.io/workshop_nfRNAseq/
 
 #### Time and Date
